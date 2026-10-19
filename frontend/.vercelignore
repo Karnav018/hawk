@@ -1,0 +1,5 @@
+# Vercel builds from source; the local build and installs stay home.
+node_modules
+dist
+dist-ssr
+.DS_Store

@@ -1,0 +1,18 @@
+flowchart TD
+  Q["Question in plain words<br/>e.g. the PDF about rent from last month"] --> P["Rule-based query understanding<br/>type filter · date window · filler trimmed"]
+  P --> E["Embed the question<br/>gemini-embedding-001 · task QUERY · 1536-d"]
+  E --> S1["Stage 1 — Vector KNN<br/>cosine distance · type pre-filter<br/>over-fetch 60 candidates"]
+  S1 --> F["Date post-filter<br/>drop dormant chunks"]
+  F --> V["Vector ranking<br/>by cosine distance"]
+  F --> L["Stage 2 — Lexical ranking<br/>term overlap, stop-words removed"]
+  V --> R["Stage 3 — Reciprocal Rank Fusion<br/>score = 1/(60 + rank_vector)<br/>+ 1/(60 + rank_lexical)"]
+  L --> R
+  R --> T["Top 8 passages → answer context<br/>relevance % = (1 − distance / 2) × 100"]
+  classDef q fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  classDef stage fill:#FFF7ED,stroke:#C2410C,color:#0F172A,font-weight:bold
+  classDef mid fill:#FFFFFF,stroke:#64748B,color:#0F172A
+  classDef out fill:#DCFCE7,stroke:#15803D,color:#0F172A,font-weight:bold
+  class Q,P,E q
+  class S1,L,R stage
+  class F,V mid
+  class T out

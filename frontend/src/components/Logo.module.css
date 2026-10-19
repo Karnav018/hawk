@@ -1,0 +1,24 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--logo, 28px) * 0.29);
+}
+
+.lockup .mark {
+  width: var(--logo, 28px);
+  height: var(--logo, 28px);
+}
+
+.mark {
+  display: block;
+  flex: none;
+}
+
+.wordmark {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: calc(var(--logo, 28px) * 0.79);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--paper);
+}

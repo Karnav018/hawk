@@ -1,0 +1,777 @@
+/*
+ * The pain collage. Everything is placed on one canvas in % of the section
+ * (desktop below, phones at the end), in two boxes per element: .layer places
+ * it and drifts with the pointer, .piece arrives and idles.
+ */
+.pain {
+  --px: 0;
+  --py: 0;
+  --ink-line: #0b1024;
+  position: relative;
+  isolation: isolate;
+  height: max(100svh, 680px);
+  overflow: hidden;
+  background:
+    linear-gradient(to bottom, var(--film-edge) 0%, rgba(16, 26, 54, 0) 12%),
+    radial-gradient(1.5px 1.5px at 18% 12%, rgba(239, 231, 212, 0.55), transparent),
+    radial-gradient(1px 1px at 36% 8%, rgba(239, 231, 212, 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 58% 18%, rgba(239, 231, 212, 0.35), transparent),
+    radial-gradient(1px 1px at 67% 46%, rgba(239, 231, 212, 0.4), transparent),
+    radial-gradient(1px 1px at 48% 71%, rgba(239, 231, 212, 0.35), transparent),
+    radial-gradient(1.5px 1.5px at 74% 88%, rgba(239, 231, 212, 0.3), transparent),
+    radial-gradient(ellipse 55% 50% at 50% 48%, #1f2c5a 0%, rgba(20, 27, 59, 0) 70%),
+    #141b3b;
+}
+
+/* ---- Layer + piece ---- */
+
+.layer {
+  position: absolute;
+  translate: calc(var(--px) * var(--d) * 1px) calc(var(--py) * var(--d) * 1px);
+  transition: translate 600ms var(--ease-out);
+}
+
+.piece {
+  opacity: 0;
+  transition:
+    opacity 500ms var(--ease-out) var(--delay),
+    transform 900ms cubic-bezier(0.2, 1.3, 0.35, 1) var(--delay);
+}
+
+.piece[data-enter='pop'] {
+  transform: scale(0.55);
+}
+
+/* Paper tossed onto the table: falls in, turning, and settles. */
+.piece[data-enter='toss'] {
+  transform: translateY(-70px) rotate(-16deg) scale(0.92);
+}
+
+.piece[data-enter='rise'] {
+  transform: translateY(24px);
+}
+
+.pain[data-seen='true'] .piece {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Canvas: desktop ---- */
+
+.posBlobLeft {
+  left: -3%;
+  top: 20%;
+  width: 29vw;
+}
+.posBlobEye {
+  left: 71%;
+  top: 7.5%;
+  width: 25.5vw;
+}
+.posBlobFigure {
+  left: -1.5%;
+  top: 65%;
+  width: 36vw;
+}
+.posBlobRight {
+  left: 77%;
+  top: 52%;
+  width: 30vw;
+}
+
+.posBubble {
+  left: 4.3%;
+  top: 26%;
+  width: 15.5vw;
+}
+.posFigure {
+  left: 10%;
+  top: 65.5%;
+  width: 12vw;
+}
+.posPolaroid {
+  left: 25.5%;
+  top: 69.5%;
+  width: 12vw;
+}
+.posVoice {
+  left: 38.5%;
+  top: 83%;
+  width: 15vw;
+}
+.posTagImg {
+  left: 62.5%;
+  top: 80.5%;
+}
+.posTagDoc {
+  left: 57%;
+  top: 88%;
+}
+
+.posGlow {
+  left: 78.5%;
+  top: 5%;
+  width: 20vw;
+}
+.posOrbit {
+  left: 76%;
+  top: 13.5%;
+  width: 26vw;
+}
+.posEye {
+  left: 82.5%;
+  top: 16%;
+  width: 10.5vw;
+}
+.posSays {
+  left: 81.5%;
+  top: 38.5%;
+  width: 13.5vw;
+}
+
+.posSparkEye {
+  left: 86.3%;
+  top: 11%;
+  width: 1.9vw;
+}
+.posSparkFigure {
+  left: 23%;
+  top: 70.5%;
+  width: 1.5vw;
+}
+.posSparkRight {
+  left: 83.5%;
+  top: 59.5%;
+  width: 1.5vw;
+}
+
+/* ---- Paper blobs ---- */
+
+.posBlobLeft .piece,
+.posBlobEye .piece,
+.posBlobFigure .piece,
+.posBlobRight .piece {
+  aspect-ratio: 1.07;
+}
+.posBlobEye .piece {
+  aspect-ratio: 1.14;
+}
+.posBlobRight .piece {
+  aspect-ratio: 0.95;
+}
+
+.blob {
+  width: 100%;
+  height: 100%;
+  border-radius: 58% 42% 46% 54% / 55% 48% 52% 45%;
+  /* Cream card with a few printed specks. */
+  background:
+    radial-gradient(circle at 20% 30%, rgba(28, 39, 72, 0.32) 0 1.4px, transparent 2px) 0 0 / 140px 130px,
+    radial-gradient(circle at 70% 60%, rgba(28, 39, 72, 0.22) 0 1px, transparent 1.6px) 0 0 / 90px 110px,
+    radial-gradient(circle at 40% 80%, rgba(28, 39, 72, 0.28) 0 1.2px, transparent 1.8px) 0 0 / 170px 150px,
+    var(--paper-card);
+  animation: wobble 16s ease-in-out infinite alternate;
+}
+
+.posBlobEye .blob {
+  border-radius: 46% 54% 44% 56% / 58% 50% 50% 42%;
+  animation-duration: 13s;
+}
+.posBlobFigure .blob {
+  border-radius: 52% 48% 40% 60% / 46% 52% 48% 54%;
+  animation-duration: 18s;
+  animation-delay: -4s;
+}
+.posBlobRight .blob {
+  border-radius: 60% 40% 50% 50% / 45% 55% 45% 55%;
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+/* ---- The line ---- */
+
+.copy {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  z-index: 5;
+  width: min(92%, 64vw);
+  translate: -50% 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 8.5vw, 12rem);
+  line-height: 0.94;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--paper);
+  /* Hard extrusion, like a cut-out lifted off the page. */
+  text-shadow:
+    0.012em 0.012em 0 var(--ink-line),
+    0.024em 0.024em 0 var(--ink-line),
+    0.036em 0.036em 0 var(--ink-line),
+    0.048em 0.048em 0 var(--ink-line);
+}
+
+.titleLine {
+  display: block;
+  /* The lines are set by hand; never let one wrap. */
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.35em) rotate(-2deg);
+  transition:
+    opacity 500ms var(--ease-out) var(--delay),
+    transform 900ms cubic-bezier(0.2, 1.3, 0.35, 1) var(--delay);
+}
+
+.pain[data-seen='true'] .titleLine {
+  opacity: 1;
+  transform: none;
+}
+
+.sub {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms var(--ease-out) 520ms,
+    transform 700ms var(--ease-out) 520ms;
+}
+
+.pain[data-seen='true'] .sub {
+  opacity: 1;
+  transform: none;
+}
+
+.sub {
+  margin: 0.55em 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 4.5rem);
+  line-height: 1;
+  color: #c3c9dd;
+}
+
+.sub em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+
+/* ---- Line art: draws itself on ---- */
+
+.stroke {
+  fill: none;
+  stroke: var(--paper-ink);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  /* A round cap on an empty dash still paints a dot. */
+  opacity: 0;
+  transition:
+    stroke-dashoffset 520ms var(--ease-out) calc(var(--delay, 0ms) + 250ms + var(--i) * 110ms),
+    opacity 1ms linear calc(var(--delay, 0ms) + 250ms + var(--i) * 110ms);
+}
+
+.stroke[data-tone='accent'] {
+  stroke: var(--accent);
+}
+
+.pain[data-seen='true'] .stroke {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* ---- The stressed figure ---- */
+
+.figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Every few seconds, a nervous shudder. */
+.posFigure .piece {
+  transform-origin: 50% 100%;
+}
+
+.pain[data-seen='true'] .posFigure .piece {
+  animation: shudder 4.5s ease-in-out 2.5s infinite;
+}
+
+/* ---- Speech bubble ---- */
+
+.bubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 220 / 120;
+  rotate: -3deg;
+}
+
+.bubbleShape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.bubbleShape .stroke {
+  stroke-width: 3;
+  fill: var(--paper-card);
+}
+
+.bubbleText {
+  position: relative;
+  padding: 0 12% 12%;
+  font: 600 clamp(20px, 1.9vw, 36px) / 1.05 var(--font-hand);
+  color: var(--paper-ink);
+  text-align: center;
+}
+
+/* ---- Paper props ---- */
+
+.polaroid {
+  display: block;
+  width: 100%;
+  height: auto;
+  rotate: -8deg;
+  filter: drop-shadow(8px 10px 0 var(--ink-line));
+}
+
+.voice {
+  display: flex;
+  align-items: center;
+  gap: 8%;
+  aspect-ratio: 3.4;
+  padding: 0 9% 0 6%;
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: 7px 9px 0 var(--ink-line);
+  rotate: 4deg;
+}
+
+.voiceDot {
+  flex: none;
+  width: 18%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--paper-ink);
+}
+
+.voiceBars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+
+/* The waveform plays, like a voice note you can't place. */
+.voiceBars span {
+  width: 5%;
+  height: calc(var(--h) * 0.08vw);
+  min-height: 8px;
+  border-radius: 99px;
+  background: var(--paper-ink);
+  animation: talk 900ms ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -130ms);
+}
+
+.tag {
+  display: block;
+  padding: 0.55em 0.9em;
+  font: 400 clamp(11px, 1vw, 16px) / 1 var(--font-mono);
+  color: var(--paper-ink);
+  white-space: nowrap;
+  background: var(--paper);
+  box-shadow: 5px 6px 0 var(--ink-line);
+}
+
+.posTagImg .tag {
+  rotate: 4deg;
+}
+.posTagDoc .tag {
+  rotate: -3deg;
+}
+
+/* Bob gently once they have landed. */
+.pain[data-seen='true'] .polaroid,
+.pain[data-seen='true'] .voice,
+.pain[data-seen='true'] .tag {
+  animation: bob 6s ease-in-out infinite alternate;
+}
+.pain[data-seen='true'] .voice {
+  animation-duration: 7s;
+  animation-delay: -2s;
+}
+.pain[data-seen='true'] .posTagDoc .tag {
+  animation-duration: 5s;
+  animation-delay: -3s;
+}
+
+/* ---- Hawk: glow, orbit, eye ---- */
+
+.glow {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 200, 245, 0.32), rgba(92, 200, 245, 0) 62%);
+  animation: pulse 3.4s ease-in-out infinite alternate;
+}
+
+.orbit {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  rotate: -9deg;
+}
+
+/* Marching dashes: the orbit is always moving. */
+.orbitPath {
+  stroke: var(--accent);
+  stroke-width: 2.2;
+  stroke-dasharray: 0.011 0.009;
+  animation: march 6s linear infinite;
+}
+
+/* Cut paper, so it casts the collage's hard shadow. Until the pointer
+   moves, it looks down at the stressed figure. */
+.eye {
+  --look-x: -0.7;
+  --look-y: 0.35;
+  --open-delay: 1s;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0.25vw 0.4vw 0 var(--ink-line));
+}
+
+.says {
+  display: block;
+  font: 600 clamp(18px, 1.9vw, 34px) / 1.05 var(--font-hand);
+  color: var(--accent);
+  text-align: center;
+  rotate: -6deg;
+}
+
+/* ---- Sparkles ---- */
+
+.spark {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: #8e97b3;
+  animation: twinkle 3.2s ease-in-out infinite alternate;
+}
+
+/* ---- Keyframes ---- */
+
+@keyframes wobble {
+  from {
+    rotate: -2deg;
+    scale: 1;
+  }
+  to {
+    rotate: 2.5deg;
+    scale: 1.035;
+  }
+}
+
+@keyframes bob {
+  to {
+    translate: 0 -7px;
+  }
+}
+
+@keyframes talk {
+  from {
+    scale: 1 0.45;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+@keyframes march {
+  to {
+    stroke-dashoffset: -0.2;
+  }
+}
+
+@keyframes pulse {
+  to {
+    scale: 1.12;
+    opacity: 0.8;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    scale: 0.7;
+    opacity: 0.55;
+  }
+  to {
+    scale: 1.1;
+    opacity: 1;
+  }
+}
+
+@keyframes shudder {
+  0%,
+  86%,
+  100% {
+    rotate: 0deg;
+  }
+  88% {
+    rotate: -2.5deg;
+  }
+  90% {
+    rotate: 2.5deg;
+  }
+  92% {
+    rotate: -2deg;
+  }
+  94% {
+    rotate: 1.5deg;
+  }
+  96% {
+    rotate: 0deg;
+  }
+}
+
+/*
+ * ---- Phones and portrait tablets: design 02m ("Pain — mobile, 390×844") ----
+ * A canvas measured in --u, a hundredth of its width, one screen tall.
+ * Horizontal positions are the artboard's, centred; vertical ones are its %
+ * of 844; sizes are its px / 3.9 in u.
+ */
+@media (max-width: 640px), (max-aspect-ratio: 4/5) {
+  /*
+   * Exactly one screen, like the film above it. lvh is the tallest the screen
+   * gets (browser bars hidden), so the film never peeks in above this section
+   * when it is scrolled to. Vertical positions are % of the section; --u is
+   * 1vw unless the screen is too short to hold the collage (200u), in which
+   * case everything shrinks to fit and the canvas centres.
+   */
+  .pain {
+    --u: min(1vw, calc(100lvh / 200));
+    height: 100lvh;
+    background: radial-gradient(ellipse 80% 45% at 50% 45%, #1a2a55, #101a36);
+  }
+
+  /* No blob behind the bubble here: it sits on the night, filled cream. */
+  .posBlobLeft {
+    display: none;
+  }
+  .posBlobEye {
+    left: calc(50% + 1.3 * var(--u));
+    top: 9%;
+    width: calc(61.5 * var(--u));
+  }
+  .posBlobEye .piece {
+    aspect-ratio: 1.09;
+  }
+  .posBlobEye .blob {
+    border-radius: 52% 48% 60% 40% / 55% 45% 55% 45%;
+  }
+  .posBlobFigure {
+    left: calc(50% + -65.4 * var(--u));
+    top: 72.3%;
+    width: calc(76.9 * var(--u));
+  }
+  .posBlobFigure .piece {
+    aspect-ratio: 1;
+  }
+  .posBlobRight {
+    left: calc(50% + 14.1 * var(--u));
+    top: 77%;
+    width: calc(51.3 * var(--u));
+  }
+  .posBlobRight .piece {
+    aspect-ratio: 0.77;
+  }
+
+  .posBubble {
+    left: calc(50% + -46.4 * var(--u));
+    top: 13%;
+    width: calc(43.6 * var(--u));
+  }
+  .bubble {
+    rotate: -5deg;
+  }
+
+  .posGlow {
+    left: calc(50% + 7 * var(--u));
+    top: 12.2%;
+    width: calc(44 * var(--u));
+  }
+  .posOrbit {
+    left: calc(50% + 2 * var(--u));
+    top: 18%;
+    width: calc(54 * var(--u));
+  }
+  .orbit {
+    rotate: -14deg;
+  }
+  .orbitPath {
+    stroke-width: 4;
+  }
+  .posEye {
+    left: calc(50% + 16.7 * var(--u));
+    top: 15.6%;
+    width: calc(24.6 * var(--u));
+  }
+  .posSays {
+    left: calc(50% + 6.9 * var(--u));
+    top: 27.5%;
+    width: calc(38.5 * var(--u));
+  }
+  /* On the eye's blob, so ink instead of cyan. */
+  .says {
+    font-size: calc(4.6 * var(--u));
+    color: var(--paper-ink);
+    rotate: -4deg;
+  }
+
+  .posSparkEye {
+    left: calc(50% + 34.6 * var(--u));
+    top: 11.4%;
+    width: calc(4.1 * var(--u));
+  }
+  .posSparkFigure {
+    left: calc(50% + 1.3 * var(--u));
+    top: 77%;
+    width: calc(3.6 * var(--u));
+  }
+  .posSparkRight {
+    left: calc(50% + 26.9 * var(--u));
+    top: 82.9%;
+    width: calc(3.1 * var(--u));
+  }
+  .spark {
+    fill: rgba(16, 26, 54, 0.55);
+  }
+
+  /* Centred between the bubble/eye cluster and the collage below. */
+  .copy {
+    top: 43%;
+    width: calc(100 * var(--u));
+    padding: 0 calc(4.6 * var(--u));
+  }
+  .title {
+    font-size: calc(15.4 * var(--u));
+    line-height: 0.92;
+    letter-spacing: 0;
+    -webkit-text-stroke: 2px var(--ink-line);
+    text-shadow:
+      1px 1px 0 var(--ink-line),
+      2px 2px 0 var(--ink-line),
+      3px 3px 0 var(--ink-line),
+      4px 4px 0 var(--ink-line),
+      5px 5px 0 var(--ink-line);
+  }
+  .sub {
+    margin-top: 0.7em;
+    font-size: calc(6.7 * var(--u));
+    color: var(--text-muted);
+  }
+
+  .posFigure {
+    left: calc(50% + -44.9 * var(--u));
+    top: 74.6%;
+    width: calc(33.3 * var(--u));
+  }
+  /* Darker cyan, so the sweat still reads on the cream blob. */
+  .figure .stroke[data-tone='accent'] {
+    stroke: #2c8fc4;
+  }
+  .posPolaroid {
+    left: calc(50% + -6.4 * var(--u));
+    top: 78.7%;
+    width: calc(23.6 * var(--u));
+  }
+  .polaroid {
+    rotate: -9deg;
+    filter: drop-shadow(4px 6px 0 rgba(4, 8, 20, 0.6));
+  }
+  .posVoice {
+    left: calc(50% + -4.9 * var(--u));
+    top: 92.4%;
+    width: calc(38.5 * var(--u));
+  }
+  .voice {
+    rotate: 5deg;
+    padding: 0 calc(3 * var(--u));
+    gap: 5%;
+    border: 2.5px solid var(--paper-ink);
+    box-shadow: 4px 6px 0 rgba(4, 8, 20, 0.6);
+  }
+  .voiceDot {
+    width: calc(5.1 * var(--u));
+    box-shadow: 0 0 0 2px var(--paper-ink);
+  }
+  .voiceBars span {
+    height: calc(var(--h) * calc(0.19 * var(--u)));
+    min-height: 0;
+  }
+  .posTagImg {
+    left: calc(50% + 17.2 * var(--u));
+    top: 73%;
+  }
+  .posTagDoc {
+    left: calc(50% + -42.3 * var(--u));
+    top: 73.2%;
+  }
+  .tag {
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 500;
+    border: 2px solid var(--paper-ink);
+    border-radius: 5px;
+    box-shadow: 3px 4px 0 rgba(4, 8, 20, 0.6);
+  }
+  .posTagImg .tag {
+    rotate: 6deg;
+  }
+  .posTagDoc .tag {
+    rotate: -4deg;
+  }
+
+  .bubbleText {
+    font-size: calc(5.4 * var(--u));
+  }
+}
+
+/* ---- Reduced motion: the finished collage, still ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .piece,
+  .titleLine,
+  .sub,
+  .stroke {
+    transition: none;
+  }
+
+  .blob,
+  .glow,
+  .spark,
+  .orbitPath,
+  .voiceBars span,
+  .pain[data-seen='true'] .polaroid,
+  .pain[data-seen='true'] .voice,
+  .pain[data-seen='true'] .tag,
+  .pain[data-seen='true'] .posFigure .piece {
+    animation: none;
+  }
+}

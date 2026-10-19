@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..600&family=Instrument+Serif:ital@0;1&family=Martian+Mono:wght@300;400;500;600&display=swap"><style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#e6e8ec;font-family:Archivo,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+a{color:#2f5fe0;text-decoration:none}a:hover{color:#1b3fa8}
+@keyframes swirl{0%{transform:rotate(0) scale(1.3)}100%{transform:rotate(360deg) scale(1.3)}}
+@keyframes rise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes island{
+  0%{width:56px;transform:translate(-50%,0) scaleY(.86);opacity:0;animation-timing-function:cubic-bezier(.2,.8,.3,1)}
+  6%{width:60px;transform:translate(-50%,-4px) scaleY(1);opacity:1;animation-timing-function:cubic-bezier(.34,1.46,.5,1)}
+  23%{width:368px;transform:translate(-50%,-84px) scaleY(1);opacity:1;animation-timing-function:cubic-bezier(.3,0,.4,1)}
+  27%{width:362px;transform:translate(-50%,-79px) scaleY(1);opacity:1;animation-timing-function:linear}
+  86%{width:362px;transform:translate(-50%,-79px) scaleY(1);opacity:1;animation-timing-function:cubic-bezier(.55,0,.85,.35)}
+  93.5%{width:56px;transform:translate(-50%,-2px) scaleY(1);opacity:1;animation-timing-function:ease-in}
+  100%{width:56px;transform:translate(-50%,0) scaleY(.86);opacity:0}
+}
+@keyframes islandContent{0%,20%{opacity:0;transform:translateY(5px)}27%,84%{opacity:1;transform:translateY(0)}90%,100%{opacity:0;transform:translateY(3px)}}
+@keyframes micDim{0%,6%{opacity:1;transform:scale(1)}23%,86%{opacity:.22;transform:scale(.84)}93.5%,100%{opacity:1;transform:scale(1)}}
+</style></helmet>
+
+<section id="t1" style="padding:46px 52px 44px">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px">
+    <a href="#t1" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 8px;background:#070b16;color:#fff;border-radius:4px">1</a>
+    <span style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;letter-spacing:-.018em;color:#0e1116">Knowra — snackbars</span>
+  </div>
+  <p style="margin:0 0 32px;max-width:760px;font-size:14px;line-height:1.6;color:#4a5461">Five treatments, each built from parts the app already uses so nothing new enters the system. All sized to clear the floating nav pill, dark and light shown together. My pick is <a href="#1a">1a</a> for everyday confirmations and <a href="#1d">1d</a> for anything the assistant did on your behalf.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px;align-items:start">
+
+    <div id="1a" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <a href="#1a" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 7px;background:rgba(14,17,22,.07);color:#0e1116;border-radius:4px">1A</a>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;letter-spacing:-.015em;color:#0e1116">Glass pill</span>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#4a5461">The nav pill's exact geometry — 999px radius, blurred ink, one circular action. Reads as a sibling of the bar it sits above, which is why it feels native rather than bolted on.</p>
+      <div style="padding:20px;border-radius:14px;background:#070b16;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:12px;height:58px;padding:0 8px 0 18px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,0,0,.45)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5fd39b" stroke-width="2" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+          <span style="flex:1;font-size:14.5px;color:#fff">Saved to your library</span>
+          <div style="height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#070b16;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Open</div>
+        </div>
+      </div>
+      <div style="padding:20px;border-radius:14px;background:#f2f3f6;border:1px solid rgba(14,17,22,.08)">
+        <div style="display:flex;align-items:center;gap:12px;height:58px;padding:0 8px 0 18px;border-radius:999px;background:#0e1116;box-shadow:0 10px 26px rgba(14,17,22,.24)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5fd39b" stroke-width="2" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+          <span style="flex:1;font-size:14.5px;color:#fff">Saved to your library</span>
+          <div style="height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#070b16;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Open</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <a href="#1b" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 7px;background:rgba(14,17,22,.07);color:#0e1116;border-radius:4px">1B</a>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;letter-spacing:-.015em;color:#0e1116">Panel card</span>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#4a5461">The library panel at snackbar scale — tinted type tile, two lines, text action. For events that need a filename and a state, where one line would truncate.</p>
+      <div style="padding:20px;border-radius:14px;background:#070b16;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:13px;padding:12px 16px 12px 12px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 14px 32px rgba(0,0,0,.42)">
+          <div style="width:38px;height:38px;border-radius:11px;background:rgba(91,140,255,.2);border:1px solid rgba(91,140,255,.38);display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c2d4ff" stroke-width="1.7"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path><path d="M14 3v4h4"></path></svg>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14px;font-weight:500;color:#fff;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">msa-northwind-2026.docx</div>
+            <div style="font-size:11.5px;color:rgba(255,255,255,.62)">Indexed · askable now</div>
+          </div>
+          <span style="font-size:13.5px;font-weight:600;color:#8fb0ff;flex:none">Ask</span>
+        </div>
+      </div>
+      <div style="padding:20px;border-radius:14px;background:#f2f3f6;border:1px solid rgba(14,17,22,.08)">
+        <div style="display:flex;align-items:center;gap:13px;padding:12px 16px 12px 12px;border-radius:16px;background:#fff;border:1px solid rgba(14,17,22,.1);box-shadow:0 10px 26px rgba(14,17,22,.12)">
+          <div style="width:38px;height:38px;border-radius:11px;background:rgba(47,95,224,.12);border:1px solid rgba(47,95,224,.28);display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2447b0" stroke-width="1.7"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path><path d="M14 3v4h4"></path></svg>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14px;font-weight:500;color:#0e1116;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">msa-northwind-2026.docx</div>
+            <div style="font-size:11.5px;color:#5b6472">Indexed · askable now</div>
+          </div>
+          <span style="font-size:13.5px;font-weight:600;color:#2f5fe0;flex:none">Ask</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="1c" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <a href="#1c" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 7px;background:rgba(14,17,22,.07);color:#0e1116;border-radius:4px">1C</a>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;letter-spacing:-.015em;color:#0e1116">Progress bar</span>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#4a5461">Persistent, not timed — it stays while work happens and reuses the 3px accent line from the processing queue. The only snackbar allowed to live longer than four seconds.</p>
+      <div style="padding:20px;border-radius:14px;background:#070b16;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:14px 16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 14px 32px rgba(0,0,0,.42)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="flex:1;font-size:14px;color:#fff">Reading 2 files</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10.5px;color:rgba(255,255,255,.78)">64%</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" style="flex:none"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </div>
+          <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.16);margin-top:11px"><div style="width:64%;height:3px;border-radius:2px;background:#5b8cff"></div></div>
+        </div>
+      </div>
+      <div style="padding:20px;border-radius:14px;background:#f2f3f6;border:1px solid rgba(14,17,22,.08)">
+        <div style="border-radius:16px;background:#fff;border:1px solid rgba(14,17,22,.1);padding:14px 16px;box-shadow:0 10px 26px rgba(14,17,22,.12)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="flex:1;font-size:14px;color:#0e1116">Reading 2 files</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10.5px;color:#4a5461">64%</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(14,17,22,.4)" stroke-width="2" style="flex:none"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </div>
+          <div style="height:3px;border-radius:2px;background:rgba(14,17,22,.12);margin-top:11px"><div style="width:64%;height:3px;border-radius:2px;background:#2f5fe0"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1d" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <a href="#1d" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 7px;background:rgba(14,17,22,.07);color:#0e1116;border-radius:4px">1D</a>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;letter-spacing:-.015em;color:#0e1116">Orb toast</span>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#4a5461">The mark itself as the glyph, reserved strictly for things Knowra did on its own — an answer ready, a link captured in the background. Users learn that an orb means the assistant, not the system.</p>
+      <div style="padding:20px;border-radius:14px;background:#070b16;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:13px;height:58px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,0,0,.45)">
+          <div style="position:relative;width:34px;height:34px;border-radius:50%;overflow:hidden;flex:none;box-shadow:inset 0 0 12px rgba(255,255,255,.26)">
+            <div style="position:absolute;inset:-30%;background:url(orb-emission.png) center/cover;filter:blur(1px) saturate(1.3);animation:swirl 20s linear infinite"></div>
+          </div>
+          <span style="flex:1;font-size:14.5px;color:#fff">Answer ready — 3 sources</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2" style="flex:none"><path d="M9 5l7 7-7 7"></path></svg>
+        </div>
+      </div>
+      <div style="padding:20px;border-radius:14px;background:#f2f3f6;border:1px solid rgba(14,17,22,.08)">
+        <div style="display:flex;align-items:center;gap:13px;height:58px;padding:0 18px 0 12px;border-radius:999px;background:#0e1116;box-shadow:0 10px 26px rgba(14,17,22,.24)">
+          <div style="position:relative;width:34px;height:34px;border-radius:50%;overflow:hidden;flex:none;box-shadow:inset 0 0 12px rgba(255,255,255,.26)">
+            <div style="position:absolute;inset:-30%;background:url(orb-emission.png) center/cover;filter:blur(1px) saturate(1.3)"></div>
+          </div>
+          <span style="flex:1;font-size:14.5px;color:#fff">Answer ready — 3 sources</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2" style="flex:none"><path d="M9 5l7 7-7 7"></path></svg>
+        </div>
+      </div>
+    </div>
+
+    <div id="1e" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <a href="#1e" style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;font-weight:500;padding:4px 7px;background:rgba(14,17,22,.07);color:#0e1116;border-radius:4px">1E</a>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;letter-spacing:-.015em;color:#0e1116">Undo, with a clock
+</span>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.55;color:#4a5461">For the one destructive path in the product — archiving or deleting a file. The ring drains as the window closes, so the guarantee "nothing goes without your confirmation" is visible, not just promised.</p>
+      <div style="padding:20px;border-radius:14px;background:#070b16;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:13px;height:58px;padding:0 8px 0 16px;border-radius:999px;background:rgba(240,164,91,.16);border:1px solid rgba(240,164,91,.36);box-shadow:0 14px 34px rgba(0,0,0,.45)">
+          <div style="position:relative;width:26px;height:26px;flex:none">
+            <div style="position:absolute;inset:0;border-radius:50%;background:conic-gradient(#f0a45b 0turn,#f0a45b .68turn,rgba(255,255,255,.16) .68turn)"></div>
+            <div style="position:absolute;inset:4px;border-radius:50%;background:#0e1116;display:flex;align-items:center;justify-content:center">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:8.5px;color:#f3c193">4</span>
+            </div>
+          </div>
+          <span style="flex:1;font-size:14.5px;color:#fff">1 file archived</span>
+          <div style="height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#070b16;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Undo</div>
+        </div>
+      </div>
+      <div style="padding:20px;border-radius:14px;background:#f2f3f6;border:1px solid rgba(14,17,22,.08)">
+        <div style="display:flex;align-items:center;gap:13px;height:58px;padding:0 8px 0 16px;border-radius:999px;background:#0e1116;box-shadow:0 10px 26px rgba(14,17,22,.24)">
+          <div style="position:relative;width:26px;height:26px;flex:none">
+            <div style="position:absolute;inset:0;border-radius:50%;background:conic-gradient(#f0a45b 0turn,#f0a45b .68turn,rgba(255,255,255,.16) .68turn)"></div>
+            <div style="position:absolute;inset:4px;border-radius:50%;background:#0e1116;display:flex;align-items:center;justify-content:center">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:8.5px;color:#f3c193">4</span>
+            </div>
+          </div>
+          <span style="flex:1;font-size:14.5px;color:#fff">1 file archived</span>
+          <div style="height:40px;padding:0 16px;border-radius:999px;background:#f0a45b;color:#3a1f06;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Undo</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:34px;padding:26px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+    <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#5b6472">IN CONTEXT — CLEARANCE ABOVE THE NAV PILL</div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;margin-top:18px">
+      <div style="position:relative;width:402px;border-radius:26px;overflow:hidden;background:#070b16;padding:28px 20px 26px">
+        <div style="position:absolute;left:-28%;top:-40%;width:156%;height:120%;background:url(orb-emission.png) center/cover;filter:blur(74px) saturate(1.1);opacity:.3"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,22,.6),#070b16)"></div>
+        <div style="position:relative">
+          <div style="display:flex;align-items:center;gap:12px;height:58px;padding:0 8px 0 18px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(26px);box-shadow:0 14px 34px rgba(0,0,0,.5);animation:rise .5s ease-out both">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5fd39b" stroke-width="2" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+            <span style="flex:1;font-size:14.5px;color:#fff">Saved to your library</span>
+            <div style="height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#070b16;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Open</div>
+          </div>
+          <div style="display:flex;justify-content:center;margin-top:12px">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px;border-radius:999px;background:rgba(9,14,28,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(26px);box-shadow:0 14px 34px rgba(0,0,0,.5)">
+              <div style="width:52px;height:52px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="4.5"></rect><path d="M9 9.5h6M12 9.5V16"></path></svg>
+              </div>
+              <div style="width:60px;height:60px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="1.7"><rect x="8.5" y="3" width="7" height="11.5" rx="3.5"></rect><path d="M5.5 12a6.5 6.5 0 0 0 13 0M12 18.5V21"></path></svg>
+              </div>
+              <div style="width:52px;height:52px;border-radius:999px;background:#5b8cff;display:flex;align-items:center;justify-content:center">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#07142e" stroke-width="1.8"><path d="M3.5 7h6l2 2h9v10h-17z"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">12px above the pill, 20px side margins</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">The snackbar shares the pill's inset so the two read as one stack, never as a bar covering a bar.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">Rise 500ms, hold 4s, fade 250ms</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">14px translate on entry — the same easing the panels use. Progress (<a href="#1c">1c</a>) persists instead; undo (<a href="#1e">1e</a>) holds 5s with the ring draining.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">One action, never two</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">Filled white pill for the primary path, accent text for the soft one. Dismiss is a swipe, not a button — the × only appears on persistent bars.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#f0a45b;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">Colour carries meaning</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">Green glyph confirms, accent informs, amber means reversible-for-now. Nothing else gets a colour.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;padding:26px;border-radius:20px;background:#fff;border:1px solid rgba(14,17,22,.1)">
+    <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#5b6472">MORPH — IT GROWS OUT OF THE NAV BAR, DYNAMIC ISLAND STYLE</div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;margin-top:18px">
+
+      <div style="position:relative;width:402px;height:210px;border-radius:26px;overflow:hidden;background:#070b16">
+        <div style="position:absolute;left:-28%;top:-60%;width:156%;height:150%;background:url(orb-emission.png) center/cover;filter:blur(74px) saturate(1.1);opacity:.3"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,22,.55),#070b16)"></div>
+
+        <div style="position:absolute;left:50%;top:117px;height:58px;z-index:1;display:flex;align-items:center;gap:12px;padding:0 8px 0 18px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(26px);box-shadow:0 16px 38px rgba(0,0,0,.5);overflow:hidden;white-space:nowrap;animation:island 5.6s linear infinite">
+          <div style="display:flex;align-items:center;gap:12px;width:326px;animation:islandContent 5.6s ease-in-out infinite">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5fd39b" stroke-width="2" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+            <span style="flex:1;font-size:14.5px;color:#fff">Saved to your library</span>
+            <div style="height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#070b16;display:flex;align-items:center;font-size:13.5px;font-weight:600;flex:none">Open</div>
+          </div>
+        </div>
+
+        <div style="position:absolute;left:0;right:0;bottom:26px;z-index:2;display:flex;justify-content:center">
+          <div style="display:flex;align-items:center;gap:8px;padding:8px;border-radius:999px;background:rgba(9,14,28,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(26px);box-shadow:0 14px 34px rgba(0,0,0,.5)">
+            <div style="width:52px;height:52px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="4.5"></rect><path d="M9 9.5h6M12 9.5V16"></path></svg>
+            </div>
+            <div style="width:60px;height:60px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center;animation:micDim 5.6s ease-in-out infinite">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="1.7"><rect x="8.5" y="3" width="7" height="11.5" rx="3.5"></rect><path d="M5.5 12a6.5 6.5 0 0 0 13 0M12 18.5V21"></path></svg>
+            </div>
+            <div style="width:52px;height:52px;border-radius:999px;background:#5b8cff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#07142e" stroke-width="1.8"><path d="M3.5 7h6l2 2h9v10h-17z"></path></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">It leaves from the control that caused it</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">The bar begins on the pill's own centre line and one layer <em>behind</em> it, so its first 40px of travel is hidden by the pill — it is seen leaving from underneath rather than appearing above. The mic dims to 22% while it is out.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">Width and travel on one spring, 950ms out</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">56 → 362px and 0 → −79px animate together on <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px">cubic-bezier(.34,1.46,.5,1)</span>, peaking at 368px / −84px before settling over 224ms — that overshoot is what makes it read as elastic rather than as a resize.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#2f5fe0;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">Content arrives after the shape settles</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">Label and action stay at zero opacity for the first 20% of the cycle and are fully up by 27%, once the shape has settled. Nothing squashes mid-stretch — the radius stays 999px the whole way.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="width:3px;border-radius:2px;background:#f0a45b;flex:none"></div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0e1116;letter-spacing:-.015em">Reverse is faster — 420ms, no overshoot</div>
+            <div style="font-size:13px;line-height:1.55;color:#4a5461;margin-top:3px">Retraction runs 420ms against the 950ms opening, easing in and swallowing back into the same button. Springing on the way out would read as a second, unrelated event. Hold is 3.3s between them.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin:30px 0 0;font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#4a5461">TELL ME WHICH TO STANDARDISE ON AND I'LL WIRE IT INTO THE MAIN FILE — SAVE, INDEX COMPLETE, ANSWER READY, ARCHIVE UNDO, AND THE OFFLINE CASE.</p>
+</section>
+</x-dc>
+</body>
+</html>

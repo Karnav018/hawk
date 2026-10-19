@@ -1,0 +1,23 @@
+sequenceDiagram
+  autonumber
+  actor U as User
+  participant App as Hawk app
+  participant Fn as Cloud Functions
+  participant DB as Firestore
+  participant G as Google OAuth
+  participant CB as oauth_callback (https)
+  App->>Fn: begin_connection(google_drive)
+  Fn->>Fn: create PKCE verifier + challenge
+  Fn->>DB: store verifier in oauthChallenges (no client access)
+  Fn-->>App: authorize URL + challengeId
+  App->>G: open the consent screen in a browser
+  U->>G: approve access
+  G->>CB: redirect with authorization code
+  CB-->>App: 302 to the app's custom scheme (makes no decision)
+  App->>Fn: complete_connection(code, challengeId)
+  Fn->>DB: load the verifier
+  Fn->>G: exchange code + verifier
+  G-->>Fn: refresh token + access token
+  Fn->>Fn: encrypt the refresh token (AES-GCM)
+  Fn->>DB: save in storageAccounts/id/private (denied to every client)
+  Fn-->>App: account connected

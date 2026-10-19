@@ -1,0 +1,39 @@
+flowchart TB
+  subgraph PRES["Presentation layer"]
+    PG["Pages and widgets"]
+    BL["BLoC / Cubits<br/>immutable states"]
+  end
+  subgraph DOM["Domain layer (pure Dart)"]
+    UC["Use cases"]
+    RI["Repository interfaces<br/>AnswerRepository · MemoryRepository · …"]
+    EN["Entities<br/>freezed models"]
+  end
+  subgraph DATA["Data layer"]
+    FR["Firebase repositories<br/>Firestore · Functions · Storage"]
+    LO["Local index and cache<br/>LocalIndex · CacheStore"]
+    PL["Platform gateways<br/>purchases · speech · files · OAuth"]
+  end
+  DI{{"get_it + injectable<br/>registers each implementation for its interface"}}
+  PG -- "events and calls" --> BL
+  BL -. "states" .-> PG
+  BL --> UC
+  BL --> RI
+  UC --> RI
+  UC --> EN
+  RI -. "implemented by" .-> FR
+  RI -. "implemented by" .-> LO
+  RI -. "implemented by" .-> PL
+  FR --- DI
+  LO --- DI
+  PL --- DI
+  classDef pres fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  classDef dom fill:#F5F3FF,stroke:#7C3AED,color:#0F172A
+  classDef data fill:#FFF7ED,stroke:#C2410C,color:#0F172A
+  classDef di fill:#FEF3C7,stroke:#B45309,color:#0F172A,font-weight:bold
+  class PG,BL pres
+  class UC,RI,EN dom
+  class FR,LO,PL data
+  class DI di
+  style PRES fill:#F8FAFF,stroke:#2563EB,stroke-width:2px
+  style DOM fill:#FBFAFF,stroke:#7C3AED,stroke-width:2px
+  style DATA fill:#FFFBF5,stroke:#C2410C,stroke-width:2px

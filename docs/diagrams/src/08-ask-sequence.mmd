@@ -1,0 +1,28 @@
+sequenceDiagram
+  autonumber
+  actor U as User
+  participant App as Hawk app (phone)
+  participant Idx as Local index (phone)
+  participant Emb as embed_texts
+  participant Ask as ask function
+  participant DB as Firestore
+  participant LLM as Gemini Flash-Lite
+  U->>App: What was the deposit amount?
+  App->>App: understandLocally() — dates, type, filler
+  App->>Emb: question text
+  Emb-->>App: query vector (nothing stored)
+  App->>Idx: KNN 60 + lexical rescore + RRF
+  Idx-->>App: top passage IDs + distances
+  App->>Ask: question + passage IDs (never text)
+  Ask->>DB: reserve an answer slot (transaction)
+  Ask->>DB: read the chunks by ID
+  Note over Ask,DB: drops other users', dormant and missing chunks
+  Ask->>LLM: question + numbered sources
+  LLM-->>Ask: JSON blocks + citation numbers
+  Ask->>Ask: validate citations, derive confidence
+  alt nothing cited, or an error
+    Ask->>DB: release the slot
+  end
+  Ask->>DB: save the message (server-only)
+  Ask-->>App: answer blocks + citations + confidence
+  App-->>U: answer with tappable sources

@@ -1,0 +1,24 @@
+%%{init: {"flowchart": {"rankSpacing": 200, "nodeSpacing": 60}}}%%
+flowchart LR
+  U["User"]
+  H(("Hawk<br/>system"))
+  G["Google Gemini API"]
+  D["Google Drive"]
+  S["App Store /<br/>Google Play"]
+  M["Email provider"]
+  U -->|"captures, questions, voice"| H
+  H -->|"cited answers, library"| U
+  H -->|"files, texts, prompts"| G
+  G -->|"text, vectors, answers"| H
+  H -->|"listing, download requests"| D
+  D -->|"files, change cursor"| H
+  H -->|"purchase tokens"| S
+  S -->|"verified receipts, renewals"| H
+  H -->|"sign-in code"| M
+  M -.->|"code email"| U
+  classDef ext fill:#F3F4F6,stroke:#4B5563,color:#111827
+  classDef sys fill:#1E3A8A,stroke:#1E3A8A,color:#FFFFFF,font-weight:bold
+  classDef person fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  class H sys
+  class G,D,S,M ext
+  class U person

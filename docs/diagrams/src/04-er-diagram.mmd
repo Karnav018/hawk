@@ -1,0 +1,84 @@
+erDiagram
+  USER ||--o{ MEMORY : owns
+  MEMORY ||--o{ CHUNK : "split into"
+  USER ||--|| SUBSCRIPTION : has
+  USER ||--|| USAGE_LEDGER : "metered by"
+  USER ||--o{ RECEIPT : "paid with"
+  USER ||--o{ CONVERSATION : starts
+  CONVERSATION ||--o{ MESSAGE : contains
+  MESSAGE }o--o{ CHUNK : cites
+  USER ||--o{ STORAGE_ACCOUNT : connects
+  STORAGE_ACCOUNT ||--o{ INDEX_JOB : runs
+  STORAGE_ACCOUNT |o--o{ MEMORY : "source of"
+  USER {
+    string uid PK
+    string name
+    string inputPreference "voice or typing"
+    datetime onboardedAt
+    int filedBytes "server-owned"
+  }
+  MEMORY {
+    string id PK
+    string userId FK
+    string type "pdf, photo, link ..."
+    string title
+    string status "uploaded to ready"
+    string recallState "active or dormant"
+    datetime recallExpiresAt
+    string contentHash "SHA-256"
+    string storagePath
+    int chunkCount
+    string indexNote
+  }
+  CHUNK {
+    string id PK
+    string memoryId FK
+    string userId FK
+    string text
+    int chunkIndex
+    string recallState
+    bool deleted "tombstone"
+    datetime updatedAt
+  }
+  SUBSCRIPTION {
+    string tier "free, standard, premium"
+    datetime currentPeriodEnd
+    int indexBytes
+    int fileBytes
+  }
+  USAGE_LEDGER {
+    list stamps "answers in window"
+    int weekCount
+    datetime weekEndsAt
+  }
+  RECEIPT {
+    string id PK
+    string store
+    string productId
+  }
+  CONVERSATION {
+    string id PK
+    string userId FK
+    string lastQuestion
+  }
+  MESSAGE {
+    string id PK
+    string role "user or assistant"
+    string text
+    list citations
+    string confidence
+  }
+  STORAGE_ACCOUNT {
+    string id PK
+    string userId FK
+    string provider "google_drive or device"
+    string state
+    string scopeLevel
+    list indexedFolders
+  }
+  INDEX_JOB {
+    string id PK
+    string userId FK
+    string stage
+    int progress
+  }

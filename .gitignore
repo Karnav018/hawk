@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+
+# Local agent config
+.claude/
+
+# Certificates & credentials (kept local only)
+certificates/
+certificates.zip
+firebase/functions/.env
+
+# Large video — exceeds GitHub's 100MB limit
+hawk_video.mp4
+
+# Flutter / Dart build artifacts
+app/build/
+app/.dart_tool/
+app/android/.gradle/
+app/android/build/
+app/.idea/
+
+# Python
+firebase/functions/venv/
+__pycache__/
+.ruff_cache/
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+
+# Blender rendered frame sequences (4+ GB, regenerable from .blend sources)
+design/blender/film/frames/
+design/blender/film/frames_portrait/

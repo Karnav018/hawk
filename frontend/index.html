@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- seo -->
+
+    <!--
+      Critical CSS for the film only, inline so the first paint is already the
+      right shape and colour, before the app's stylesheet arrives. The
+      background is a 32px copy of the opening frame (~0.4 KB); the browser's
+      smooth upscaling turns it into a soft blur until the full still loads.
+    -->
+    <style>
+      .film {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 0;
+        height: 100svh;
+        min-height: 320px;
+        overflow: hidden;
+        background: #0c1017 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMQD/2wBDAAgMDA4MDhAQEBAQEBMSExQUFBMTExMUFBQVFRUZGRkVFRUUFBUVGBgZGRscGxoaGRocHB4eHiQkIiIqKiszMz7/xABhAAEBAQEBAAAAAAAAAAAAAAAEAwIFBwEAAwEAAAAAAAAAAAAAAAAAAAECAxAAAQQCAgMBAQEAAAAAAAAAAQIDABESIQQxE0EiFHFREQEBAQAAAAAAAAAAAAAAAAAAARH/wAARCAASACADASIAAhEAAxEA/9oADAMBAAIRAxEAPwDxJsAkDQs9n1Oq7xcOQphspfIIALX1l8g6xvro/wCEGE4nJ/MpR8TLuSCmnkZgXX0BYpQ9GK4L6eO8lxRGkuDYvam1JBr+kTfWTfgZ/Ip7ygOh3AM1soxvO76vU4qosqHowiySbJsx0oimIHUOmIHUhTJkVS0iqAf/2Q==) center / cover no-repeat;
+      }
+      .film-still,
+      .film-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      /*
+       * Fit. The captions limit cropping: 91-95% of the height in 16:9, 9-91%
+       * of the width in 9:16. Fill only near the film's own shape (16:9 crop
+       * biased to the top), otherwise letterbox against the film's edge colour.
+       */
+      @media (min-aspect-ratio: 7/5) and (max-aspect-ratio: 21/10) {
+        .film-still,
+        .film-video {
+          object-fit: cover;
+          object-position: 50% 65%;
+        }
+      }
+      @media (max-aspect-ratio: 1/1) {
+        .film {
+          background-color: #131c2d;
+          background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMQD/2wBDAAgMDA4MDhAQEBAQEBMSExQUFBMTExMUFBQVFRUZGRkVFRUUFBUVGBgZGRscGxoaGRocHB4eHiQkIiIqKiszMz7/xABlAAACAwEBAAAAAAAAAAAAAAAABQECAwQHAQADAQEAAAAAAAAAAAAAAAAAAQMCBBAAAQQBBAIDAQEAAAAAAAAAAQIDEQAEIRJhMVEyQRORYnERAQEAAAAAAAAAAAAAAAAAAAAR/8AAEQgAIAASAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8A8ciwDrWE44xiktK+4uApc3Hb9capjdHf8n/bdjIQ0zkNHHQ6t0ICHFezW0kkplB9gfgpvUgX68U14tdx8U3HxWHWvLfdYbx1uSy0SpCITCSqZMgSez2b0574eyFrQrQpbSIUektpSBMz8RUtizaaa8ftNeP252a6H//Z);
+        }
+      }
+      @media (min-aspect-ratio: 12/25) and (max-aspect-ratio: 7/10) {
+        .film-still,
+        .film-video {
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      The film is plain HTML so the browser starts fetching the still and the
+      video while it parses the page, not after the app's JavaScript has
+      downloaded and run. React adopts the element (src/sections/hero).
+
+      Sources are tried in order and the first whose media query matches wins.
+      The files are the Blender renders' own streams, never re-encoded; a
+      higher-resolution render would go first, e.g.
+      media="(min-width: 1400px) and (min-resolution: 2dppx)".
+    -->
+    <div class="film">
+      <picture>
+        <source media="(max-aspect-ratio: 1/1)" srcset="/src/assets/film/hawk-film-portrait-poster.jpg" />
+        <img class="film-still" src="/src/assets/film/hawk-film-poster.jpg" alt="" fetchpriority="high" />
+      </picture>
+      <video
+        id="film-video"
+        class="film-video"
+        aria-label="Hawk launch film"
+        muted
+        loop
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+      >
+        <source media="(max-aspect-ratio: 1/1)" src="/src/assets/film/hawk-film-portrait-1920.mp4" type="video/mp4" />
+        <source src="/src/assets/film/hawk-film-1080.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <script>
+      // Start the muted loop now instead of after the app boots. Under reduced
+      // motion the still stays up and the visitor can press play.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.getElementById('film-video').play().catch(function () {})
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

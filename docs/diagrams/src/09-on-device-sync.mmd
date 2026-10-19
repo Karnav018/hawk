@@ -1,0 +1,18 @@
+sequenceDiagram
+  autonumber
+  participant FS as Firestore chunks
+  participant Feed as ChunkFeed (phone)
+  participant Sync as IndexSync (phone)
+  participant Emb as embed_texts
+  participant Idx as LocalIndex (phone)
+  Note over Feed: delta: chunks with updatedAt after last sync minus 10 min<br/>full: on first run and every 7 days
+  FS->>Feed: changed chunks and tombstones (listener)
+  Feed->>Sync: batch of changes (+ full ID set on a full sync)
+  Sync->>Emb: new chunk texts, batches of 50
+  Emb-->>Sync: unit vectors (nothing stored in the cloud)
+  Sync->>Idx: add and update rows, remove tombstoned chunks
+  opt full sync from the server
+    Sync->>Idx: drop anything not in the full ID set
+  end
+  Sync->>Idx: persist chunks.json + vectors.bin (temp file, atomic rename)
+  Note over Idx: search and ask now run locally<br/>wiped on sign-out

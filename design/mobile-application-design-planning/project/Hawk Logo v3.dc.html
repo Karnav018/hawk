@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..700&family=Martian+Mono:wght@400;500;600&display=swap"><style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#eceee9;font-family:Archivo,system-ui,sans-serif}
+a{color:#101010;text-decoration:none}a:hover{color:#4a4d48}
+</style></helmet>
+
+<section id="t4" style="--acc:{{ accent }};padding:46px 52px 60px">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px">
+    <a href="#t4" style="font:700 10px 'Martian Mono',ui-monospace,monospace;padding:4px 8px;background:#101010;color:#fff;border-radius:4px">4</a>
+    <span style="font-size:30px;font-weight:800;letter-spacing:-.03em;color:#101010">Hawk identity</span>
+  </div>
+  <p style="margin:0 0 30px;max-width:840px;font-size:14px;line-height:1.6;color:#3b4237;text-wrap:pretty">The lit sphere. Disc at r=24 on a 64 grid, highlight at r=7 centred on (24,24) — a 45° offset of exactly 8 units, so the mark is reproducible from two numbers. Wordmark is Archivo 800 at −.045em. This mark is now live in the app screens.</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch;margin-bottom:20px">
+
+    <div style="flex:none;width:420px;border-radius:28px;background:#fff;padding:26px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#6b6f67">PRIMARY LOCKUP</div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:16px">
+        <svg width="56" height="56" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#101010"/><circle cx="24" cy="24" r="7" fill="#eceee9"/></svg>
+        <span style="font-size:48px;font-weight:800;letter-spacing:-.045em;color:#101010;line-height:1">Hawk</span>
+      </div>
+      <div style="height:1px;background:#e4e7e1;margin:24px 0"></div>
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#6b6f67">STACKED</div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#101010"/><circle cx="24" cy="24" r="7" fill="#eceee9"/></svg>
+        <div>
+          <div style="font-size:34px;font-weight:800;letter-spacing:-.045em;color:#101010;line-height:1">Hawk</div>
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;color:#6b6f67;margin-top:8px">YOUR SECOND MEMORY</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:300px;border-radius:28px;background:#fff;padding:26px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#6b6f67">CONSTRUCTION</div>
+      <div style="margin-top:20px;border-radius:22px;background:#f3f5f0;padding:18px;display:flex;align-items:center;justify-content:center">
+        <svg width="180" height="180" viewBox="0 0 64 64" fill="none">
+          <path d="M0 24h64M0 32h64M0 40h64M24 0v64M32 0v64M40 0v64" stroke="#d6d9d2" stroke-width=".5"/>
+          <circle cx="32" cy="32" r="24" fill="#101010"/>
+          <circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/>
+          <circle cx="32" cy="32" r="24" stroke="#59d3ff" stroke-width=".5" opacity=".5"/>
+          <path d="M32 32L24 24" stroke="#fff" stroke-width=".6" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:9px;font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.04em;color:#3b4237">
+        <div style="display:flex;justify-content:space-between"><span style="color:#6b6f67">GRID</span><span>64 × 64</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#6b6f67">DISC</span><span>r 24 @ 32,32</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#6b6f67">HIGHLIGHT</span><span>r 7 @ 24,24</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#6b6f67">CLEAR SPACE</span><span>8 UNITS</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#6b6f67">MIN SIZE</span><span>16 PX</span></div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:300px;border-radius:28px;background:#0c0c0d;padding:26px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">ON INK</div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:14px">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+        <span style="font-size:38px;font-weight:800;letter-spacing:-.045em;color:#fff;line-height:1">Hawk</span>
+      </div>
+      <div style="height:1px;background:#242627;margin:24px 0"></div>
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">ONE COLOUR</div>
+      <div style="margin-top:20px;display:flex;align-items:center;gap:18px">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="#0c0c0d"/></svg>
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="var(--acc,#59d3ff)"/><circle cx="24" cy="24" r="7" fill="#0c0c0d"/></svg>
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" stroke="#fff" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="#fff"/></svg>
+      </div>
+      <div style="font-size:12.5px;line-height:1.55;color:#8b8d88;margin-top:20px;text-wrap:pretty">Knocked out, accent-filled, or outlined for embossing. The highlight always sits upper-left and never rotates.</div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <div style="flex:none;border-radius:28px;background:#fff;padding:26px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#6b6f67;margin-bottom:20px">APP ICON · 1024 → 16</div>
+      <div style="display:flex;gap:16px;align-items:center">
+        <div style="width:112px;height:112px;border-radius:28px;background:#0c0c0d;display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="65" height="65" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+        </div>
+        <div style="width:72px;height:72px;border-radius:20px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="42" height="42" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#0c0c0d"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+        </div>
+        <div style="width:52px;height:52px;border-radius:15px;background:#0c0c0d;display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="30" height="30" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7.5" fill="#0c0c0d"/></svg>
+        </div>
+        <div style="width:34px;height:34px;border-radius:10px;background:#0c0c0d;display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="25" fill="#fff"/><circle cx="23" cy="23" r="8" fill="#0c0c0d"/></svg>
+        </div>
+        <div style="width:22px;height:22px;border-radius:7px;background:#0c0c0d;display:flex;align-items:center;justify-content:center;flex:none">
+          <svg width="14" height="14" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" fill="#fff"/><circle cx="23" cy="23" r="9" fill="#0c0c0d"/></svg>
+        </div>
+      </div>
+      <div style="font-size:12.5px;line-height:1.55;color:#6b6f67;margin-top:20px;max-width:420px;text-wrap:pretty">Below 32px the highlight grows one unit and the disc grows to the safe area, so the two shapes stay readable instead of merging.</div>
+    </div>
+
+    <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+      <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+        <div style="display:flex;align-items:center;gap:12px;flex:none">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">Hi, Sam</div>
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;margin-top:2px">1,516 MEMORIES READY</div>
+          </div>
+          <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          </div>
+        </div>
+        <div style="margin-top:16px;height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+          <div style="flex:1;height:44px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700">Speak</div>
+          <div style="flex:1;height:44px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600;color:#8b8d88">Type</div>
+        </div>
+        <div style="margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+          <img src="assets/orb_listen_0.png" alt="" style="width:224px;height:224px;object-fit:contain;display:block">
+          <div style="text-align:center">
+            <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1.05">Hold to ask</div>
+            <div style="font-size:14px;color:#a4a6a1;margin-top:10px">The mark is the orb at rest.</div>
+          </div>
+        </div>
+        <div style="flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+          <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+          <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+          <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+        </div>
+      </div>
+    </x-import>
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#59d3ff&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#59d3ff&quot;,&quot;#c8f04a&quot;,&quot;#ff7a3d&quot;,&quot;#ffd14a&quot;,&quot;#ff6fae&quot;,&quot;#a78bfa&quot;],&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#59d3ff' };
+  }
+}
+</script>
+</body>
+</html>

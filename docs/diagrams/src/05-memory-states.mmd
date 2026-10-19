@@ -1,0 +1,27 @@
+stateDiagram-v2
+  direction TB
+  [*] --> uploaded : app writes the memory
+  uploaded --> processing : ingestion trigger starts
+  processing --> embedding : text read and chunked
+  processing --> extracted : nothing readable,<br/>unsupported type or over quota
+  embedding --> ready : chunks written, file kept
+  processing --> failed : error
+  embedding --> failed : error
+  failed --> processing : reindex sweep, every 6 h
+  ready --> [*]
+  note right of extracted
+    Kept in the library, not searchable.
+    indexNote says why.
+  end note
+  note left of failed
+    error text and
+    errorRetryable flag
+  end note
+  classDef good fill:#DCFCE7,stroke:#15803D,color:#0F172A
+  classDef hold fill:#FEF9C3,stroke:#A16207,color:#0F172A
+  classDef bad fill:#FEE2E2,stroke:#B91C1C,color:#0F172A
+  classDef step fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  class ready good
+  class extracted hold
+  class failed bad
+  class uploaded,processing,embedding step

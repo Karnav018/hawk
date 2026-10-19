@@ -1,0 +1,141 @@
+/*
+ * The story: the words alone, in white, on a near-black navy page.
+ *
+ * The section rises over the bottom of the collage above it with a soft wave
+ * (--seam tall, same flat blue), so the blobs cut off at that section's edge
+ * sink behind it instead of being sliced flat. The page colour starts below
+ * the seam.
+ */
+.story {
+  --story-bg: var(--ink-950);
+  /* All the words are white. */
+  --story-ink: #ffffff;
+  --seam: clamp(44px, 6vw, 96px);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  height: calc(max(100lvh, 640px) + var(--seam));
+  margin-top: calc(-1 * var(--seam));
+  padding: calc(96px + var(--seam)) var(--gutter) 96px;
+  overflow: hidden;
+  /* Links to #story land below the seam. */
+  scroll-margin-top: calc(-1 * var(--seam));
+}
+
+.story::before {
+  content: '';
+  position: absolute;
+  inset: var(--seam) 0 0;
+  z-index: -2;
+  background: var(--story-bg);
+}
+
+.seam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: calc(var(--seam) + 2px);
+}
+
+/* The Hawk mark is the cursor here (see useHawkCursor). */
+.story[data-cursor='on'],
+.story[data-cursor='on'] * {
+  cursor: none;
+}
+
+/* ---- The words ---- */
+
+.copy {
+  position: relative;
+  max-width: 40rem;
+  text-align: center;
+}
+
+/* The app's interface face. */
+.text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.8rem + 1vw, 1.75rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+/* Arrival: each word rises in after the one before. */
+.word {
+  display: inline-block;
+  color: var(--story-ink);
+  opacity: 0;
+  transform: translateY(0.4em);
+  transition:
+    opacity 600ms var(--ease-out) calc(var(--i) * 22ms),
+    transform 700ms var(--ease-out) calc(var(--i) * 22ms);
+}
+
+.story[data-seen='true'] .word {
+  opacity: 1;
+  transform: none;
+}
+
+/* The app has no Archivo italic: key phrases stand out by weight alone. */
+.word[data-key] {
+  font-weight: 600;
+}
+
+.sign {
+  margin: 1.2em 0 0;
+  font: italic 400 clamp(18px, 1.3vw, 24px) / 1.1 var(--font-serif);
+  color: var(--story-ink);
+  opacity: clamp(0, (var(--r, 0) - 0.9) * 10, 1);
+  translate: 0 calc((1 - clamp(0, (var(--r, 0) - 0.9) * 10, 1)) * 10px);
+}
+
+/* ---- The cursor (rendered into <body>, above the navbar) ----
+   Hawk's eye, small; its centre is the hotspot. */
+
+.cursor {
+  --w: 44px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  width: var(--w);
+  margin: calc(var(--w) * -0.375) 0 0 calc(var(--w) * -0.5);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55));
+}
+
+.cursor svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Phones ---- */
+
+@media (max-width: 640px) {
+  .story {
+    padding: calc(88px + var(--seam)) 6vw 72px;
+  }
+
+  .text {
+    font-size: 4.6vw;
+    line-height: 1.55;
+  }
+}
+
+/* ---- Reduced motion: the words are simply there ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .story[data-seen='true'] .word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

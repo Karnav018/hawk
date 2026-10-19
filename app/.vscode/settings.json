@@ -1,0 +1,10 @@
+{
+  // Applies to every `flutter run` from this editor, including the plain Run
+  // button — not just the named launch configurations. This is what makes
+  // dev.json the default rather than something you have to remember to pick.
+  //
+  // Needed because dart-defines are baked in at compile time: a build launched
+  // without them has no API URL and no Google client id, and a hot restart can
+  // never repair it.
+  "dart.flutterRunAdditionalArgs": ["--dart-define-from-file=config/dev.json"]
+}

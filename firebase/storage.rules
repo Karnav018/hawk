@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// Object storage holds two things: `captures/`, where a file lands on its way
+// to extraction, and `originals/`, where it is kept afterwards so the vault
+// can hand it back on any device.
+//
+// Keeping originals reverses the earlier BYOS-only reading of §7/§10. Files
+// indexed from a *connected* account are still never copied here — those stay
+// in the user's own Drive and are read through the connector. What is kept is
+// what the user uploaded from a device, which had no other home.
+//
+// Every path is scoped by the uid segment, which is what makes one user's
+// prefix exactly their own data — relied on by `delete_account`, which purges
+// by that prefix.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // The landing strip. A client writes here and the server reads it.
+    match /users/{userId}/captures/{allPaths=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // Capped and typed at the door. An unbounded write path is how a free
+      // tier becomes someone's file host.
+      //
+      // Per-object only: rules cannot see a running total, so the plan's
+      // `file_bytes` ceiling is enforced in `file_vault` before a file is
+      // moved into `originals/`. The two are not alternatives — this stops
+      // one enormous object, that stops a million small ones.
+      allow write: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.size < 100 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*|application/pdf|audio/.*|video/.*|text/.*');
+    }
+
+    // Kept files. Readable by their owner; written only by the server.
+    //
+    // Write is denied by having no `allow write` at all, rather than by an
+    // `allow write: if false` beside the rule above. Allow statements in one
+    // match block are OR-ed, so a false one next to a true one grants
+    // nothing and forbids nothing — it reads like a restriction and is not.
+    // The Admin SDK ignores rules, which is how `file_vault` still writes.
+    match /users/{userId}/originals/{allPaths=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

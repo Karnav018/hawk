@@ -1,0 +1,85 @@
+/*
+ * A slim bar on the story's night: one hairline, then the logo and the film's
+ * last line on the left, the links and the year on the right.
+ */
+.footer {
+  background: var(--ink-950);
+  padding: 0 var(--gutter) max(28px, env(safe-area-inset-bottom));
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: 'brand tagline links legal';
+  align-items: center;
+  column-gap: clamp(16px, 2.4vw, 40px);
+  row-gap: 14px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(239, 231, 212, 0.1);
+}
+
+.brand {
+  --logo: 30px;
+  grid-area: brand;
+  display: inline-flex;
+  padding: 4px;
+  margin: -4px;
+  border-radius: 8px;
+}
+
+.tagline {
+  grid-area: tagline;
+  margin: 0;
+  font: italic 400 20px / 1 var(--font-serif);
+  color: var(--text-muted);
+}
+
+.links {
+  grid-area: links;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+}
+
+.link {
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color 160ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--paper);
+  }
+}
+
+.legal {
+  grid-area: legal;
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+/* ---- Narrow screens: logo and line, then the links, then the year ---- */
+
+@media (max-width: 820px) {
+  .bar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'brand tagline'
+      'links links'
+      'legal legal';
+    padding-top: 22px;
+  }
+
+  .tagline {
+    justify-self: end;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .links {
+    gap: 4px 20px;
+  }
+}

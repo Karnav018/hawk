@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "326925575468",
+    "project_id": "knowra-506719",
+    "storage_bucket": "knowra-506719.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326925575468:android:9e0c09a38dedcd8615b889",
+        "android_client_info": {
+          "package_name": "com.knowra.knowra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326925575468-ueugug35as8nepm7on3i3u09sfdmlrjl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.knowra.knowra",
+            "certificate_hash": "062c5a3c1a73aca04accbb8c8705d19887a1cc2f"
+          }
+        },
+        {
+          "client_id": "326925575468-5j1321uu45hm08fvfit57b5s5uu9sj4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh5sFtf5-wgcxSyCHAIMlB725AbEIAc98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326925575468-5j1321uu45hm08fvfit57b5s5uu9sj4o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "326925575468-0db2ge0ld2vr20l4p53k2drn44t0mapd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.hawkapp.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326925575468:android:3c7725619d4f1dc315b889",
+        "android_client_info": {
+          "package_name": "in.hawkapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326925575468-49cc69bm5782nos3o48k87t6elsq04k1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.hawkapp.app",
+            "certificate_hash": "11965a4f3bb8061c6c6c2365280ab5728f767ae4"
+          }
+        },
+        {
+          "client_id": "326925575468-e9pqnc73tipsfu9scebj97g11ucc4oec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.hawkapp.app",
+            "certificate_hash": "cb3cbce202c89d6d36577d8c583a2ca739fe1c21"
+          }
+        },
+        {
+          "client_id": "326925575468-ia8k1im82rnnbi0408et5af8q0am3ivu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.hawkapp.app",
+            "certificate_hash": "062c5a3c1a73aca04accbb8c8705d19887a1cc2f"
+          }
+        },
+        {
+          "client_id": "326925575468-pkocpq5cbdngca98j0bjoi2disgqkdgo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.hawkapp.app",
+            "certificate_hash": "3cef8f7365c9c0c0a07f8ae060bb1ded091ad2eb"
+          }
+        },
+        {
+          "client_id": "326925575468-qidtf14hm1j1lenc4jup17m5ipf8vn7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.hawkapp.app",
+            "certificate_hash": "cbf55d7b0988ef061e633e3921d576a55e7a2611"
+          }
+        },
+        {
+          "client_id": "326925575468-5j1321uu45hm08fvfit57b5s5uu9sj4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh5sFtf5-wgcxSyCHAIMlB725AbEIAc98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326925575468-5j1321uu45hm08fvfit57b5s5uu9sj4o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "326925575468-0db2ge0ld2vr20l4p53k2drn44t0mapd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.hawkapp.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

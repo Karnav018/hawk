@@ -1,0 +1,38 @@
+{
+  // Run configurations for Knowra.
+  //
+  // The first entry is what the Run button uses by default, which is the whole
+  // point of this file: every flavour needs
+  // `--dart-define-from-file`, and a value baked in at compile time cannot be
+  // fixed by a hot restart. Forgetting the flag produces a build that looks
+  // fine and silently has no API URL and no OAuth client ids.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Knowra (dev)",
+      "request": "launch",
+      "type": "dart",
+      "program": "app/lib/main.dart",
+      "cwd": "app",
+      "args": ["--dart-define-from-file=config/dev.json"]
+    },
+    {
+      "name": "Knowra (dev, profile)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "app/lib/main.dart",
+      "cwd": "app",
+      "args": ["--dart-define-from-file=config/dev.json"]
+    },
+    {
+      "name": "Knowra (prod)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "app/lib/main.dart",
+      "cwd": "app",
+      "args": ["--dart-define-from-file=config/prod.json"]
+    }
+  ]
+}

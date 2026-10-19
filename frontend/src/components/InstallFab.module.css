@@ -1,0 +1,42 @@
+.fab {
+  position: fixed;
+  z-index: 20;
+  right: max(var(--gutter), env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  animation: arrive 700ms var(--ease-out) 600ms both;
+  transition:
+    opacity 280ms var(--ease-out),
+    translate 280ms var(--ease-out);
+}
+
+.fab[data-hidden='true'] {
+  opacity: 0;
+  translate: 0 16px;
+  pointer-events: none;
+}
+
+/* The mark leads, so the left edge needs a little less air. */
+.fab .button {
+  padding-left: 16px;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .fab .button {
+    min-height: 48px;
+    padding: 0 18px 0 14px;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab {
+    animation: none;
+  }
+}

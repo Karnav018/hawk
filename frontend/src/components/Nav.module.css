@@ -1,0 +1,201 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  height: 0;
+}
+
+/* ---- Over the film: just the wordmark ---- */
+
+.brand {
+  --logo: 44px;
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  left: var(--gutter);
+  display: inline-flex;
+  padding: 4px;
+  margin: -4px;
+  border-radius: 8px;
+  transition:
+    opacity 280ms var(--ease-out),
+    transform 280ms var(--ease-out);
+}
+
+.nav[data-open='true'] .brand {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* ---- Scrolled: the floating pill ---- */
+
+.pill {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100vw - 2 * 16px);
+  padding: 7px;
+  border-radius: 999px;
+  background: rgba(22, 26, 34, 0.96);
+  border: 1px solid rgba(239, 231, 212, 0.08);
+  box-shadow:
+    0 22px 44px -14px rgba(0, 0, 0, 0.7),
+    0 6px 14px -6px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 24px));
+  transition:
+    opacity 320ms var(--ease-out),
+    transform 520ms cubic-bezier(0.2, 1.3, 0.35, 1);
+}
+
+.nav[data-open='true'] .pill {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.home {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--paper-card);
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
+/* While the story's Hawk cursor is out, its socket in the button stands empty. */
+.home svg {
+  transition:
+    opacity 180ms var(--ease-out),
+    scale 180ms var(--ease-out);
+}
+
+:global(html[data-hawk-cursor='out']) .home svg {
+  opacity: 0;
+  scale: 0.4;
+}
+
+/* Hover only where there is a real pointer: on phones a tap leaves :hover stuck. */
+@media (hover: hover) {
+  .home:hover {
+    background: var(--paper);
+    transform: rotate(-12deg);
+  }
+
+  .link:hover {
+    color: var(--paper);
+    background: rgba(239, 231, 212, 0.07);
+  }
+
+  .cta:hover {
+    background: var(--paper);
+  }
+}
+
+.links {
+  display: flex;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.link {
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: rgba(239, 231, 212, 0.72);
+  transition:
+    color 160ms var(--ease-out),
+    background-color 160ms var(--ease-out);
+}
+
+.link[aria-current='true'] {
+  color: var(--paper);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--paper-card);
+  color: var(--paper-ink);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
+.cta:active,
+.home:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 480px) {
+  .brand {
+    --logo: 38px;
+  }
+
+  .pill {
+    gap: 2px;
+    padding: 5px;
+  }
+
+  .home,
+  .cta {
+    height: 42px;
+  }
+
+  .home {
+    width: 42px;
+  }
+
+  .links {
+    padding: 0 2px;
+  }
+
+  .link {
+    padding: 10px 11px;
+    font-size: 15px;
+  }
+
+  .cta {
+    padding: 0 16px;
+    font-size: 15px;
+  }
+
+  .ctaLong {
+    display: none;
+  }
+
+  .link[data-wide] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .pill,
+  .nav[data-open='true'] .brand,
+  .nav[data-open='true'] .pill {
+    transition: opacity 160ms linear;
+  }
+
+  .pill,
+  .nav[data-open='true'] .pill {
+    transform: translate(-50%, 0);
+  }
+}

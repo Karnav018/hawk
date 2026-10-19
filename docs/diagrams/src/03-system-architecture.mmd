@@ -1,0 +1,41 @@
+flowchart TB
+  subgraph PHONE["User's phone — Flutter app"]
+    STT["On-device speech<br/>recognition"]
+    LIDX[("Local vector index<br/>chunks.json + vectors.bin")]
+    APP["Flutter app<br/>screens → BLoC → repositories"]
+  end
+  subgraph FB["Google Firebase (serverless)"]
+    AUTH["Firebase Auth"]
+    FS[("Cloud Firestore<br/>+ security rules")]
+    ST[("Cloud Storage<br/>captures · originals")]
+    CF["Cloud Functions<br/>Python · 38 functions"]
+  end
+  subgraph EXT["External services"]
+    GEM["Google Gemini API<br/>embed · read · answer"]
+    GD["Google Drive API"]
+    STORE["Google Play /<br/>App Store APIs"]
+    MAIL["Email provider"]
+  end
+  STT -- "spoken query" --> APP
+  LIDX <-- "local search" --> APP
+  APP -- "4 · sign-in" --> AUTH
+  APP -- "1 · reads, whitelisted writes" --> FS
+  APP -- "2 · file upload" --> ST
+  APP -- "3 · callable functions" --> CF
+  FS <-. "5 · trigger on write,<br/>server-side writes" .-> CF
+  ST <-- "read, keep files" --> CF
+  CF --> GEM
+  CF --> GD
+  CF --> STORE
+  CF --> MAIL
+  classDef phone fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  classDef cloud fill:#FFF7ED,stroke:#C2410C,color:#0F172A
+  classDef fn fill:#FEF3C7,stroke:#B45309,color:#0F172A,font-weight:bold
+  classDef ext fill:#F3F4F6,stroke:#4B5563,color:#111827
+  class APP,LIDX,STT phone
+  class AUTH,FS,ST cloud
+  class CF fn
+  class GEM,GD,STORE,MAIL ext
+  style PHONE fill:#F8FAFF,stroke:#2563EB,stroke-width:2px
+  style FB fill:#FFFBF5,stroke:#C2410C,stroke-width:2px
+  style EXT fill:#FAFAFA,stroke:#6B7280,stroke-width:2px

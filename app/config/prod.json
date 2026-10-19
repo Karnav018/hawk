@@ -1,0 +1,10 @@
+{
+  "APP_NAME": "Knowra",
+  "FLAVOR": "prod",
+  "GOOGLE_CLIENT_ID": "",
+  "GOOGLE_SERVER_CLIENT_ID": "326925575468-5j1321uu45hm08fvfit57b5s5uu9sj4o.apps.googleusercontent.com",
+  "USE_FIREBASE_EMULATOR": "false",
+  "EMULATOR_HOST": "localhost",
+  "SENTRY_DSN": "",
+  "SENTRY_TRACES_SAMPLE_RATE": "0.2"
+}

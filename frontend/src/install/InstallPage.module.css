@@ -1,0 +1,101 @@
+/*
+ * Hawk's eye over a serif "Get Hawk", and a paper button per store. A store
+ * that isn't live yet is an outline that says so.
+ */
+.main {
+  flex: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  padding: clamp(40px, 8vh, 96px) var(--gutter) 96px;
+  text-align: center;
+}
+
+.eye {
+  width: clamp(120px, 14vw, 168px);
+  height: auto;
+  margin-bottom: 28px;
+  filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, 0.45));
+}
+
+.title {
+  margin: 0;
+  font: 400 clamp(3rem, 2rem + 4vw, 5.5rem) / 1 var(--font-serif);
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+
+.text {
+  max-width: 30rem;
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c3cadb;
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.store {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  min-width: 210px;
+  padding: 12px 22px 13px;
+  border-radius: 14px;
+  background: var(--paper-card);
+  color: var(--paper-ink);
+  box-shadow: var(--paper-shadow-sm);
+  text-align: left;
+  transition:
+    translate 160ms var(--ease-out),
+    box-shadow 160ms var(--ease-out);
+}
+
+.lead {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.store[data-soon] {
+  background: transparent;
+  color: var(--paper);
+  border: 1px dashed rgba(239, 231, 212, 0.3);
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  a.store:hover {
+    translate: -1px -2px;
+    box-shadow: 4px 7px 0 rgba(4, 8, 20, 0.5);
+  }
+}
+
+a.store:active {
+  translate: 2px 3px;
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .stores {
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  .store {
+    min-width: 0;
+  }
+}

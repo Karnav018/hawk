@@ -1,0 +1,48 @@
+# Ruff configuration for the Cloud Functions codebase.
+#
+# There was none before, so `ruff check` silently inherited whatever config it
+# found walking up the filesystem — which is why it flagged `noqa` comments
+# for rules that were never enabled here.
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+exclude = ["venv", ".venv", "__pycache__"]
+
+[tool.ruff.lint]
+select = [
+  "E",    # pycodestyle
+  "F",    # pyflakes
+  "I",    # import sorting
+  "B",    # bugbear
+  "UP",   # pyupgrade
+  "S",    # bandit — this codebase holds OAuth tokens
+  "RUF",
+  "PL",
+]
+ignore = [
+  # main.py imports after initialize_app() on purpose: the Admin SDK must be
+  # ready before any module that touches Firestore at import time.
+  "E402",
+  # Deferred imports break genuine circular dependencies between the callable
+  # layer and the connector registry.
+  "PLC0415",
+  # Best-effort cleanup paths (revoking a token at a provider that is down)
+  # deliberately swallow everything; the alternative is failing a user's
+  # disconnect because a third party is having a bad minute.
+  "BLE001",
+  "PLR0913",
+  "PLR2004",
+  # En dashes and arrows are used deliberately in prose comments throughout.
+  "RUF001",
+  "RUF002",
+  "RUF003",
+  # `__all__` in main.py is grouped by concern (auth / connectors / pipeline),
+  # which tells a reader more than alphabetical order would.
+  "RUF022",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests assert on private helpers, use short names, and raise bare Exception
+# where the point is only that *something* refuses.
+"test_*.py" = ["S101", "S105", "S106", "B017", "SLF001", "PLR2004", "RUF059"]

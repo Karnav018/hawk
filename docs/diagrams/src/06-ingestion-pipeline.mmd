@@ -1,0 +1,33 @@
+flowchart TD
+  A["User captures<br/>photo · scan · file · link · note · voice"] --> B{"Same SHA-256<br/>already in vault?"}
+  B -- yes --> B1["Open the existing memory"]
+  B -- no --> C["Upload bytes to Cloud Storage<br/>users/uid/captures · max 100 MB"]
+  C --> D["Write memories/id<br/>status = uploaded"]
+  D -. "Firestore trigger" .-> E["on_memory_created<br/>1 GB RAM · 540 s · up to 20 instances"]
+  E --> F["Stamp recall expiry from the plan<br/>status = processing"]
+  F --> G{"Memory type?"}
+  G -- "note / text" --> H1["Use the text as is"]
+  G -- "link" --> H2["link_archive<br/>SSRF-safe fetch, strip HTML"]
+  G -- "photo / screenshot" --> H3["Gemini Flash<br/>describe picture + OCR"]
+  G -- "PDF / document / audio" --> H4["Gemini Flash<br/>verbatim transcription"]
+  G -- "video" --> X["status = extracted<br/>indexNote: not readable yet"]
+  H1 & H2 & H3 & H4 --> I["chunking.split<br/>1000 chars · 150 overlap · max 400"]
+  I --> J{"Fits the plan's<br/>index budget?"}
+  J -- "only partly" --> J1["Keep the chunks that fit<br/>note: partially indexed"]
+  J -- yes --> K["Write chunk documents, text only<br/>status = embedding"]
+  J1 --> K
+  K --> L["file_vault.keep<br/>move to originals/ within quota"]
+  L --> M["status = ready"]
+  M -. "snapshot listener" .-> N["Every signed-in phone:<br/>IndexSync embeds the new chunks<br/>into its local index"]
+  classDef phone fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  classDef cloud fill:#FFF7ED,stroke:#C2410C,color:#0F172A
+  classDef ai fill:#F5F3FF,stroke:#7C3AED,color:#0F172A
+  classDef decision fill:#FFFFFF,stroke:#334155,color:#0F172A
+  classDef done fill:#DCFCE7,stroke:#15803D,color:#0F172A,font-weight:bold
+  classDef hold fill:#FEF9C3,stroke:#A16207,color:#0F172A
+  class A,B1,C,D,N phone
+  class E,F,H1,H2,I,J1,K,L cloud
+  class H3,H4 ai
+  class B,G,J decision
+  class M done
+  class X hold

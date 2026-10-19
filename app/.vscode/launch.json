@@ -1,0 +1,37 @@
+{
+  // Same configurations as the repo root, for when app/ is opened on its
+  // own. Kept in both places because which one an editor finds depends
+  // entirely on which folder was opened.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Knowra (dev)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define-from-file=config/dev.json"
+      ]
+    },
+    {
+      "name": "Knowra (dev, profile)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define-from-file=config/dev.json"
+      ]
+    },
+    {
+      "name": "Knowra (prod)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define-from-file=config/prod.json"
+      ]
+    }
+  ]
+}

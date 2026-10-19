@@ -1,0 +1,30 @@
+flowchart LR
+  user(("User"))
+  subgraph HAWK["Hawk system"]
+    direction TB
+    uc1(["Sign in<br/>Google · Apple · email code"])
+    uc2(["Capture a memory<br/>photo · scan · file · link · note · voice"])
+    uc3(["Browse library and<br/>open the original file"])
+    uc4(["Search by meaning,<br/>date and type"])
+    uc5(["Ask a question and get<br/>a cited answer"])
+    uc6(["Speak a query<br/>on the orb screen"])
+    uc7(["Connect Google Drive<br/>and choose folders"])
+    uc8(["Upgrade plan"])
+    uc9(["Manage account<br/>deactivate · delete"])
+  end
+  gemini(("Gemini AI"))
+  drive(("Google Drive"))
+  store(("App Store /<br/>Google Play"))
+  user --- uc1 & uc2 & uc3 & uc4 & uc5 & uc6 & uc7 & uc8 & uc9
+  uc2 --- gemini
+  uc4 --- gemini
+  uc5 --- gemini
+  uc7 --- drive
+  uc8 --- store
+  classDef actor fill:#1E3A8A,stroke:#1E3A8A,color:#FFFFFF,font-weight:bold
+  classDef ext fill:#F3F4F6,stroke:#4B5563,color:#111827
+  classDef uc fill:#EFF6FF,stroke:#2563EB,color:#0F172A
+  class user actor
+  class gemini,drive,store ext
+  class uc1,uc2,uc3,uc4,uc5,uc6,uc7,uc8,uc9 uc
+  style HAWK fill:#FFFFFF,stroke:#94A3B8,stroke-width:2px,stroke-dasharray:6 4

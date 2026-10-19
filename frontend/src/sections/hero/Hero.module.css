@@ -1,0 +1,76 @@
+/* Same box as .film in index.html, which it sits over. */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 320px;
+  cursor: pointer;
+}
+
+/* ---- Pause / sound, bottom-left; vertically centred on the install FAB ---- */
+
+.controls {
+  position: absolute;
+  left: var(--gutter);
+  bottom: calc(max(20px, env(safe-area-inset-bottom)) + 4px);
+  display: flex;
+  gap: 10px;
+  cursor: auto;
+}
+
+/*
+ * No backdrop-filter: over a playing video the browser would have to re-blur
+ * the region under each button on every frame. A denser tint reads the same.
+ */
+.round {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--paper);
+  background: rgba(11, 19, 40, 0.72);
+  border: 1px solid rgba(239, 231, 212, 0.18);
+  opacity: 0.85;
+  transition:
+    opacity 160ms var(--ease-out),
+    background-color 160ms var(--ease-out),
+    border-color 160ms var(--ease-out);
+}
+
+.round:hover,
+.round:focus-visible {
+  opacity: 1;
+  background: rgba(11, 19, 40, 0.88);
+  border-color: rgba(239, 231, 212, 0.4);
+}
+
+/* While muted, a slow cyan ring says "there is sound here" without words. */
+.round[data-hint='true']::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: hint 2.4s var(--ease-out) infinite;
+  pointer-events: none;
+}
+
+@keyframes hint {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .round[data-hint='true']::after {
+    animation: none;
+    opacity: 0.6;
+  }
+}

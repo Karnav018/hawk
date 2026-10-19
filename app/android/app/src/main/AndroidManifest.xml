@@ -1,0 +1,99 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Removed from the merge, and kept removed as a guard.
+
+         open_filex used to declare these; its replacement, open_file 4.x,
+         does not. They stay here because any plugin can add them back in a
+         merge, and nothing in Hawk uses them: every original it opens lives
+         in the app's own files directory, which open_file reads without a
+         permission check (`isNeedPermission` is only true for a file the
+         app cannot already read).
+
+         Google Play rejects apps that declare READ_MEDIA_IMAGES /
+         READ_MEDIA_VIDEO without broad media access being core to the
+         product, so a permission the app never uses would be what gets the
+         release refused. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" tools:node="remove" />
+
+    <!-- Dictation on screen 2C. Requested at the moment the user first taps
+         the orb, not at launch: a microphone prompt before the product has
+         explained itself is the fastest way to be refused. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Screen 2E (Scan) and 2C's Camera tile. Asked for at the moment the
+         camera is first opened, never at launch. image_picker requests it
+         itself once it is declared here. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Android 11+ package visibility: without this the speech engine is
+         invisible to the app and initialize() fails with no explanation. -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+    <application
+        android:label="Hawk"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+    
+        <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    
+        <!-- Where a storage provider sends the browser back after consent.
+             The scheme must match `REDIRECT_URI` in the backend's
+             connectors/registry.py, and the client id registered with each
+             provider. Nothing sensitive arrives here: the authorization code
+             it carries cannot be exchanged without the PKCE verifier, which
+             never leaves the server. -->
+        <activity
+            android:name="com.linusu.flutter_web_auth_2.CallbackActivity"
+            android:exported="true">
+            <intent-filter android:label="knowra_oauth">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="com.knowra.knowra" />
+            </intent-filter>
+        </activity>
+
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>

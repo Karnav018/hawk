@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..700&family=Martian+Mono:wght@400;500;600&display=swap"><style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#eceee9;font-family:Archivo,system-ui,sans-serif}
+a{color:#101010;text-decoration:none}a:hover{color:#4a4d48}
+</style></helmet>
+
+<section id="t1" style="--acc:{{ accent }};padding:46px 52px 60px">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px">
+    <a href="#t1" style="font:700 10px 'Martian Mono',ui-monospace,monospace;padding:4px 8px;background:#101010;color:#fff;border-radius:4px">1</a>
+    <span style="font-size:30px;font-weight:800;letter-spacing:-.03em;color:#101010">Hawk v3 — full flow</span>
+  </div>
+  <p style="margin:0 0 34px;max-width:840px;font-size:14px;line-height:1.6;color:#3b4237;text-wrap:pretty">The whole product in one language: ink ground, 28px cards, white cards for the one thing that matters on a screen, a single accent used only for the primary action and live state, Martian Mono strictly for metadata. Nine lanes, read left to right in each: <b>A onboarding</b>, <b>B library and upload</b>, <b>C search</b>, <b>D profile, pricing and payment</b>, <b>E plan limits</b> (locked states, quota alerts, upgrade prompts), <b>F home and search routes</b> (voice-default home, chat-default home, nothing found), <b>G upload routes</b> (files, images, link, scan, speak, indexing queue), <b>H viewer routes</b> (audio, image), <b>I account routes</b> (billing, privacy, delete). Every route in the product is drawn. The Accent tweak themes the UI only — the orb art is fixed. Bottom nav is two tabs plus profile — Home, Library, You. Vault lives inside profile, never in the nav.</p>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">A · ONBOARDING</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="1a" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1a" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1A</a> SPLASH</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:56px 20px 34px">
+          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+          <div style="text-align:center">
+            <div style="font-size:32px;font-weight:800;letter-spacing:-.035em">Hawk</div>
+            <div style="font-size:14px;color:#8b8d88;margin-top:8px">Your second memory</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:52px;display:flex;justify-content:center">
+            <div style="width:96px;height:4px;border-radius:99px;background:#212223;overflow:hidden"><div style="width:40%;height:4px;border-radius:99px;background:var(--acc,#59d3ff)"></div></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1b" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1b" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1B</a> SIGN IN</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <svg width="50" height="50" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+          <div style="margin-top:28px;flex:none">
+            <div style="font-size:38px;font-weight:800;letter-spacing:-.04em;line-height:1">Everything you<br>keep, askable.</div>
+            <div style="font-size:15px;line-height:1.6;color:#a4a6a1;margin-top:16px;max-width:310px;text-wrap:pretty">Save files, photos, recordings and links. Ask for them later in your own words.</div>
+          </div>
+          <div style="margin-top:32px;display:flex;flex-direction:column;gap:10px;flex:none">
+            <div style="height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#0c0c0d" d="M21.6 12.2c0-.7-.1-1.2-.2-1.8H12v3.4h5.4c-.1.9-.7 2.2-1.9 3.1l2.8 2.2c1.7-1.6 2.7-3.9 2.7-6.9z"/><path fill="#22333b" d="M12 21.5c2.5 0 4.5-.8 6-2.2l-2.8-2.2c-.8.5-1.9.9-3.2.9-2.5 0-4.6-1.6-5.3-3.9l-2.9 2.2C5.1 19.4 8.3 21.5 12 21.5z"/><path fill="#3d5560" d="M6.7 14.1c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9L3.7 8.1C3 9.4 2.6 10.9 2.6 12.2s.4 2.8 1.1 4.1l3-2.2z"/><path fill="#5b7885" d="M12 6.4c1.8 0 3 .8 3.7 1.4l2.6-2.5C16.5 3.8 14.5 3 12 3 8.3 3 5.1 5.1 3.7 8.1l3 2.2c.7-2.2 2.8-3.9 5.3-3.9z"/></svg>
+              <span style="font-size:15.5px;font-weight:700;letter-spacing:-.01em">Continue with Google</span>
+            </div>
+            <div style="height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;gap:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              <span style="font-size:15.5px;font-weight:700;letter-spacing:-.01em">Continue with email</span>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;gap:10px;border-radius:22px;background:#191a1b;padding:16px 18px">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9" style="flex:none"><path d="M12 3.5l7 3v5.5c0 4-3 7-7 8.5-4-1.5-7-4.5-7-8.5V6.5z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span style="font-size:13px;line-height:1.5;color:#c9cac7">Indexed on your device. Files never leave without you.</span>
+            </div>
+            <div style="font-size:12px;color:#7c7e79;text-align:center">By continuing you accept the Terms and Privacy Policy.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1c" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1c" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1C</a> GOOGLE SHEET</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff">
+          <div style="padding:56px 16px;opacity:.25">
+            <svg width="50" height="50" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+            <div style="margin-top:28px;font-size:38px;font-weight:800;letter-spacing:-.04em;line-height:1">Everything you<br>keep, askable.</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;color:#101010;border-radius:30px 30px 0 0;padding:20px 18px 30px">
+            <div style="width:40px;height:4px;border-radius:99px;background:#dfe2dc;margin:0 auto 20px"></div>
+            <div style="font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.1">Choose an account<br>to continue</div>
+            <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:12px;border-radius:22px;background:#f3f5f0;padding:14px 16px">
+                <div style="width:40px;height:40px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex:none">SK</div>
+                <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Sam Kaur</div><div style="font-size:12.5px;color:#6b6f67">sam@northwind.co</div></div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;border-radius:22px;background:#f3f5f0;padding:14px 16px">
+                <div style="width:40px;height:40px;border-radius:99px;background:#e4e7e1;display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.2"><path d="M12 5.5v13M5.5 12h13"/></svg>
+                </div>
+                <div style="flex:1;font-size:15px;font-weight:600">Use another account</div>
+              </div>
+            </div>
+            <div style="font-size:12.5px;line-height:1.55;color:#6b6f67;margin-top:16px">Hawk receives your name and email. Drive access is asked for separately, later.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1d" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1d" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1D</a> EMAIL</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" keyboard="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 20px">
+          <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+          </div>
+          <div style="margin-top:24px;flex:none">
+            <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1.02">What's your email?</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:12px">Six-digit code, no password to forget.</div>
+          </div>
+          <div style="margin-top:24px;flex:none">
+            <div style="height:60px;border-radius:99px;background:#191a1b;border:1.5px solid var(--acc,#59d3ff);display:flex;align-items:center;padding:0 22px;gap:2px">
+              <span style="font-size:16px">sam@northwind.co</span>
+              <div style="width:2px;height:22px;background:var(--acc,#59d3ff)"></div>
+            </div>
+            <div style="height:56px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:10px;font-size:15.5px;font-weight:700">Send code
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1e" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1e" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1E</a> VERIFY</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" keyboard="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 20px">
+          <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+          </div>
+          <div style="margin-top:24px;flex:none">
+            <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Check your inbox</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:12px">Sent to sam@northwind.co · <span style="color:var(--acc,#59d3ff);font-weight:600">Change</span></div>
+          </div>
+          <div style="margin-top:26px;display:flex;gap:8px;flex:none">
+            <div style="flex:1;height:64px;border-radius:20px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-size:22px">4</div>
+            <div style="flex:1;height:64px;border-radius:20px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-size:22px">9</div>
+            <div style="flex:1;height:64px;border-radius:20px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-size:22px">2</div>
+            <div style="flex:1;height:64px;border-radius:20px;background:#191a1b;border:1.5px solid var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center"><div style="width:2px;height:24px;background:var(--acc,#59d3ff)"></div></div>
+            <div style="flex:1;height:64px;border-radius:20px;background:#141516"></div>
+            <div style="flex:1;height:64px;border-radius:20px;background:#141516"></div>
+          </div>
+          <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;flex:none;font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#8b8d88">
+            <span>RESEND CODE</span><span style="color:#fff">00:41</span>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1f" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1f" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1F</a> HOW YOU'LL ASK</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800">SK</div>
+            <span style="flex:1;font-size:16px;font-weight:700;letter-spacing:-.02em">Hi Sam</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">STEP 1 OF 3</span>
+          </div>
+          <div style="margin-top:26px;flex:none">
+            <div style="font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">How will you<br>mostly ask?</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:14px">This sets what home opens to. Change it any time.</div>
+          </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;flex:none">
+            <div style="border-radius:28px;background:#fff;color:#101010;padding:20px;display:flex;gap:14px;align-items:center">
+              <div style="width:50px;height:50px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:18px;font-weight:800;letter-spacing:-.025em">Speak</div>
+                <div style="font-size:13px;line-height:1.5;color:#6b6f67;margin-top:3px">Home is the orb. Hold, ask, let go.</div>
+              </div>
+              <div style="width:24px;height:24px;border-radius:99px;background:#101010;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              </div>
+            </div>
+            <div style="border-radius:28px;background:#191a1b;padding:20px;display:flex;gap:14px;align-items:center">
+              <div style="width:50px;height:50px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M9 9.5h6M12 9.5V16"/></svg>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:18px;font-weight:800;letter-spacing:-.025em">Type</div>
+                <div style="font-size:13px;line-height:1.5;color:#8b8d88;margin-top:3px">Home is a chat thread, keyboard first.</div>
+              </div>
+              <div style="width:24px;height:24px;border-radius:99px;border:2px solid #3a3c3d;flex:none"></div>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none">
+            <div style="height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Continue
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1g" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1g" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1G</a> BRING YOUR STORAGE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1"></span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">STEP 2 OF 3</span>
+          </div>
+          <div style="margin-top:26px;flex:none">
+            <div style="font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Bring your<br>own storage</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:14px;text-wrap:pretty">Originals stay where they live. Hawk reads them once and keeps only the index.</div>
+          </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;flex:none">
+            <div style="border-radius:28px;background:#191a1b;padding:20px;display:flex;gap:14px;align-items:center">
+              <div style="width:50px;height:50px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><path d="M9 3.5h6l6 10.5h-6zM9 3.5 3 14l3 5 6-10.5zM6 19h12l3-5H9z"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:18px;font-weight:800;letter-spacing:-.025em">Google Drive</div>
+                <div style="font-size:13px;line-height:1.5;color:#8b8d88;margin-top:3px">Read-only, stays in sync, never expires.</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+            <div style="border-radius:28px;background:#191a1b;padding:20px;display:flex;gap:14px;align-items:center">
+              <div style="width:50px;height:50px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><rect x="6" y="2.5" width="12" height="19" rx="3.5"/><path d="M10 18.5h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:18px;font-weight:800;letter-spacing:-.025em">Phone vault</div>
+                <div style="font-size:13px;line-height:1.5;color:#8b8d88;margin-top:3px">Pick files here and index them on device.</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;gap:10px;border-radius:22px;background:#191a1b;padding:16px 18px">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9" style="flex:none"><path d="M12 3.5l7 3v5.5c0 4-3 7-7 8.5-4-1.5-7-4.5-7-8.5V6.5z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span style="font-size:13px;line-height:1.5;color:#c9cac7">Hawk never deletes anything without your confirmation.</span>
+            </div>
+            <div style="text-align:center;font-size:14px;font-weight:600;color:#8b8d88">Skip — add later from your profile</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1h" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1h" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1H</a> DRIVE PERMISSION</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff">
+          <div style="padding:56px 16px;opacity:.25">
+            <div style="margin-top:60px;font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Bring your<br>own storage</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;color:#101010;border-radius:30px 30px 0 0;padding:20px 18px 30px">
+            <div style="width:40px;height:4px;border-radius:99px;background:#dfe2dc;margin:0 auto 20px"></div>
+            <div style="font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.1">Hawk wants access<br>to your Drive files</div>
+            <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:12px;border-radius:22px;background:#f3f5f0;padding:16px">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.9" style="flex:none;margin-top:2px"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
+                <div><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">See and download files</div><div style="font-size:12.5px;line-height:1.5;color:#6b6f67;margin-top:3px">Required to build the index.</div></div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;border-radius:22px;background:#f3f5f0;padding:16px">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6b6f67" stroke-width="1.9" style="flex:none"><path d="M5.5 7h13l-1 12.5h-11z"/><path d="M9 7V4.5h6V7"/></svg>
+                <div style="flex:1"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Move files to trash</div><div style="font-size:12.5px;line-height:1.5;color:#6b6f67;margin-top:3px">Optional, only for cleanups you confirm.</div></div>
+                <div style="width:46px;height:28px;border-radius:99px;background:#dfe2dc;display:flex;align-items:center;padding:3px;flex:none"><div style="width:22px;height:22px;border-radius:99px;background:#fff"></div></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:18px">
+              <div style="flex:1;height:54px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Cancel</div>
+              <div style="flex:1.4;height:54px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Allow</div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1i" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1i" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1I</a> PICK WHAT TO INDEX</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1"></span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">STEP 3 OF 3</span>
+          </div>
+          <div style="margin-top:26px;flex:none">
+            <div style="font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">What should<br>we index?</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:14px">Add more later. Everything else stays untouched.</div>
+          </div>
+          <div style="margin-top:22px;display:flex;flex-direction:column;gap:9px;flex:none">
+            <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+              <div style="width:24px;height:24px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div style="flex:1"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Documents</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">248 FILES · 3.1 GB</div></div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+              <div style="width:24px;height:24px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div style="flex:1"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Voice notes</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">64 FILES · 1.2 GB</div></div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+              <div style="width:24px;height:24px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div style="flex:1"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Screenshots</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">1,204 FILES · 4.8 GB</div></div>
+            </div>
+            <div style="border-radius:22px;background:#141516;padding:16px 18px;display:flex;align-items:center;gap:13px">
+              <div style="width:24px;height:24px;border-radius:99px;border:2px solid #3a3c3d;flex:none"></div>
+              <div style="flex:1"><div style="font-size:15px;font-weight:700;letter-spacing:-.015em;color:#c9cac7">Camera roll</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">8,914 FILES · 92 GB</div></div>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#8b8d88">
+              <span>SELECTED</span><span style="color:#fff">1,516 FILES · 9.1 GB</span>
+            </div>
+            <div style="height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Start indexing
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1j" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1j" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1J</a> INDEXING</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex:none;font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">
+            <span>BUILDING YOUR LIBRARY</span><span style="color:#fff">02:41 LEFT</span>
+          </div>
+          <div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+            <img src="assets/orb_listen_2.png" alt="" style="width:190px;height:190px;object-fit:contain;display:block">
+            <div style="text-align:center">
+              <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1.05">Reading 1,516 files</div>
+              <div style="font-size:14px;color:#a4a6a1;margin-top:10px">Ask as soon as the first ones land.</div>
+            </div>
+            <div style="width:100%;border-radius:28px;background:#191a1b;padding:20px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between">
+                <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:26px;font-weight:600">38%</span>
+                <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#8b8d88">576 / 1,516</span>
+              </div>
+              <div style="height:8px;border-radius:99px;background:#2a2c2d;margin-top:14px;overflow:hidden"><div style="width:38%;height:8px;border-radius:99px;background:var(--acc,#59d3ff)"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:13px;color:#c9cac7"><span>Documents</span><span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;color:#8b8d88">248 / 248</span></div>
+              <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:13px;color:#c9cac7"><span>Voice notes</span><span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;color:#8b8d88">18 / 64</span></div>
+            </div>
+          </div>
+          <div style="flex:none;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Keep going in the background</div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">B · LIBRARY AND UPLOAD</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="1k" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1k" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1K</a> LIBRARY — ON DEVICE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <span style="flex:1;font-size:28px;font-weight:800;letter-spacing:-.035em">Library</span>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;height:52px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+            <div style="flex:1;height:42px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700">On device</div>
+            <div style="flex:1;height:42px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:14.5px;font-weight:600;color:#8b8d88">Drive <span style="width:7px;height:7px;border-radius:99px;background:var(--acc,#59d3ff)"></span></div>
+          </div>
+
+          <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;flex:none">
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:var(--acc,#59d3ff);color:#0c0c0d;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Files</span>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#191a1b;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 16.5 8.5 13l3.5 2.5L15.5 12l5 4.5"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Images</span>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#191a1b;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10 13.5a3.5 3.5 0 0 0 5 0l3-3a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14 10.5a3.5 3.5 0 0 0-5 0l-3 3a3.5 3.5 0 0 0 5 5l1-1"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Links</span>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#191a1b;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3.5 8h3L8 5.5h8L17.5 8h3v11h-17z"/><circle cx="12" cy="13.5" r="3.4"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Scan</span>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#191a1b;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 12v3M8 8.5v10M12 5.5v14M16 9v8M20 12v3"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Audio</span>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#191a1b;padding:13px;display:flex;flex-direction:column;justify-content:space-between">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em">Speak</span>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;display:flex;align-items:baseline;justify-content:space-between;flex:none">
+            <span style="font-size:15px;font-weight:700;letter-spacing:-.02em">Recent</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">1,516 INDEXED · 9.1 GB</span>
+          </div>
+
+          <div style="margin-top:10px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pricing-schedule-v4.pdf</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">14 AUG · INDEXED · KEPT FOREVER</div>
+              </div>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M4 12v3M8 8.5v10M12 5.5v14M16 9v8M20 12v3"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">standup-25-aug.m4a</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">25 AUG · INDEXING · 30 DAYS LEFT</div>
+              </div>
+              <div style="width:34px;height:34px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;font-weight:600;flex:none">62</div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 16.5 8.5 13l3.5 2.5L15.5 12l5 4.5"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">whiteboard-tiers.jpg</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">24 AUG · INDEXED · OCR</div>
+              </div>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1l" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1l" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1L</a> LIBRARY — DRIVE TAB</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <span style="flex:1;font-size:28px;font-weight:800;letter-spacing:-.035em">Library</span>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;height:52px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+            <div style="flex:1;height:42px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600;color:#8b8d88">On device</div>
+            <div style="flex:1;height:42px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;gap:7px;font-size:14.5px;font-weight:700">Drive</div>
+          </div>
+
+          <div style="margin-top:16px;border-radius:28px;background:#191a1b;padding:20px;flex:none">
+            <div style="display:flex;align-items:center;gap:13px">
+              <div style="width:46px;height:46px;border-radius:15px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><path d="M9 3.5h6l6 10.5h-6zM9 3.5 3 14l3 5 6-10.5zM6 19h12l3-5H9z"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">sam@northwind.co</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">CONNECTED · SYNCED 21:04</div>
+              </div>
+              <div style="width:10px;height:10px;border-radius:99px;background:var(--acc,#59d3ff);flex:none"></div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;align-items:baseline;justify-content:space-between;flex:none">
+            <span style="font-size:15px;font-weight:700;letter-spacing:-.02em">Drive files</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">842 OF 10,412 INDEXED</span>
+          </div>
+
+          <div style="margin-top:10px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">msa-northwind-2026.docx</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">DRIVE › CONTRACTS · INDEXED</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;flex:none">Open</div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">q4-forecast.xlsx</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">DRIVE › FINANCE · NOT INDEXED</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;flex:none">Index</div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 16.5 8.5 13l3.5 2.5L15.5 12l5 4.5"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">offsite-board.jpg</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">DRIVE › PHOTOS · NOT INDEXED</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;flex:none">Index</div>
+            </div>
+            <div style="border-radius:22px;background:#141516;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="1.9" style="flex:none"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.6"/></svg>
+              <span style="font-size:12.5px;line-height:1.5;color:#8b8d88">Removing here only deletes the index. Drive files are never touched.</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1m" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1m" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1M</a> FILE VIEWER</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pricing-schedule-v4.pdf</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:2px">PAGE 2 OF 6</div>
+            </div>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column;gap:10px">
+            <div style="flex:1;min-height:0;border-radius:20px;background:#3a3c3d;padding:12px;overflow:hidden;display:flex;justify-content:center">
+              <div style="width:100%;max-width:262px;background:#fff;color:#1a1a1a;font-family:Georgia,'Times New Roman',serif;padding:22px 20px;overflow:hidden">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #c9c9c9;padding-bottom:7px">
+                  <span style="font-family:Archivo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.14em;color:#555">NORTHWIND · CONFIDENTIAL</span>
+                  <span style="font-family:Archivo,sans-serif;font-size:7.5px;color:#888">2 / 6</span>
+                </div>
+                <div style="font-size:8px;font-weight:700;letter-spacing:.1em;color:#777;margin-top:16px;font-family:Archivo,sans-serif">4. PRICING</div>
+                <div style="font-size:15px;font-weight:700;line-height:1.2;margin-top:6px">4.1 Tier structure, FY26</div>
+                <div style="font-size:9.5px;line-height:1.75;margin-top:10px;text-align:justify">All plans are billed annually in advance. Solo is priced at $12 per user per month, Team at $29 per seat per month, and Scale is quoted per engagement subject to a contract floor of $40,000.</div>
+                <div style="font-size:9.5px;line-height:1.75;margin-top:9px;text-align:justify"><span style="background:var(--acc,#59d3ff);box-decoration-break:clone;-webkit-box-decoration-break:clone">The entry price moved from $9 to $12 on the 14 August board call in order to hold support margin positive.</span> No change was made to the enterprise floor at that meeting.</div>
+                <table style="width:100%;border-collapse:collapse;margin-top:13px;font-family:Archivo,sans-serif;font-size:8.5px">
+                  <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:4px 0;font-weight:700">Tier</td><td style="padding:4px 0;font-weight:700;text-align:right">Monthly</td><td style="padding:4px 0;font-weight:700;text-align:right">Seats</td></tr>
+                  <tr style="border-bottom:1px solid #dcdcdc"><td style="padding:4px 0">Solo</td><td style="padding:4px 0;text-align:right">$12</td><td style="padding:4px 0;text-align:right">1</td></tr>
+                  <tr style="border-bottom:1px solid #dcdcdc"><td style="padding:4px 0">Team</td><td style="padding:4px 0;text-align:right">$29</td><td style="padding:4px 0;text-align:right">2–50</td></tr>
+                  <tr><td style="padding:4px 0">Scale</td><td style="padding:4px 0;text-align:right">Quote</td><td style="padding:4px 0;text-align:right">50+</td></tr>
+                </table>
+                <div style="font-size:15px;font-weight:700;line-height:1.2;margin-top:15px">4.2 Discounting</div>
+                <div style="font-size:9.5px;line-height:1.75;margin-top:7px;text-align:justify">Discounts beyond 15% require finance approval and are recorded against the master agreement. Renewal terms follow §7 of the MSA and…</div>
+              </div>
+            </div>
+            <div style="flex:none;display:flex;align-items:center;gap:8px">
+              <div style="width:34px;height:46px;background:#fff;border-radius:3px;flex:none"></div>
+              <div style="width:34px;height:46px;background:#fff;border-radius:3px;outline:2px solid var(--acc,#59d3ff);outline-offset:2px;flex:none"></div>
+              <div style="width:34px;height:46px;background:#e4e7e1;border-radius:3px;flex:none"></div>
+              <div style="width:34px;height:46px;background:#e4e7e1;border-radius:3px;flex:none"></div>
+              <div style="width:34px;height:46px;background:#e4e7e1;border-radius:3px;flex:none"></div>
+              <div style="flex:1"></div>
+              <div style="height:30px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 12px;font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.06em;color:var(--acc,#59d3ff);flex:none">MATCH</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;display:flex;gap:9px">
+            <div style="flex:1;height:56px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;gap:9px;font-size:14.5px;font-weight:700">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 12v6.5h16V12"/><path d="M12 3.5v11m0 0 4-4m-4 4-4-4"/></svg>
+              Open in app
+            </div>
+            <div style="width:56px;height:56px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a5a" stroke-width="2"><path d="M5.5 7h13l-1 12.5h-11z"/><path d="M9 7V4.5h6V7"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">C · SEARCH</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="1n" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1n" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1N</a> VOICE — LISTENING</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1"></span>
+            <div style="height:34px;border-radius:99px;background:#191a1b;display:flex;align-items:center;gap:8px;padding:0 13px">
+              <span style="width:7px;height:7px;border-radius:99px;background:var(--acc,#59d3ff)"></span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#c9cac7">LISTENING</span>
+            </div>
+          </div>
+          <div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px">
+            <img src="assets/orb_listen_4.png" alt="" style="width:236px;height:236px;object-fit:contain;display:block">
+            <div style="font-size:28px;font-weight:800;letter-spacing:-.035em;line-height:1.15;text-align:center;max-width:320px;text-wrap:pretty">"What did we agree on pricing in the board call…"</div>
+          </div>
+          <div style="flex:none;display:flex;align-items:center;justify-content:center;gap:4px;height:44px">
+            <div style="width:3px;height:14px;border-radius:99px;background:#3a3c3d"></div>
+            <div style="width:3px;height:26px;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="width:3px;height:38px;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="width:3px;height:20px;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="width:3px;height:32px;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="width:3px;height:12px;border-radius:99px;background:#3a3c3d"></div>
+            <div style="width:3px;height:22px;border-radius:99px;background:#3a3c3d"></div>
+          </div>
+          <div style="margin-top:14px;flex:none;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#c9cac7">Release to search</div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1o" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1o" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1O</a> VOICE — RESULT STACK</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Found</span>
+            <div style="height:34px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 13px;font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:var(--acc,#59d3ff)">3 FILES</div>
+          </div>
+          <div style="margin-top:16px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.18;text-wrap:pretty">Three tiers, billed annually — Solo $12, Team $29 a seat, Scale on quote.</div>
+          </div>
+          <div style="margin-top:16px;flex:1;min-height:0;position:relative">
+            <div style="position:absolute;left:18px;right:18px;top:26px;bottom:36px;border-radius:28px;background:#1f2021"></div>
+            <div style="position:absolute;left:9px;right:9px;top:13px;bottom:24px;border-radius:28px;background:#2a2c2d"></div>
+            <div style="position:absolute;left:0;right:0;top:0;bottom:46px;border-radius:28px;background:var(--acc,#59d3ff);color:#0c0c0d;padding:22px;display:flex;flex-direction:column">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex:none">
+                <div style="width:48px;height:48px;border-radius:16px;background:#0c0c0d;display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+                </div>
+                <div style="height:30px;border-radius:99px;background:#0c0c0d;color:#fff;display:flex;align-items:center;padding:0 12px;font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;flex:none">1 / 3</div>
+              </div>
+              <div style="font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:18px">Pricing schedule v4</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.05em;margin-top:10px;line-height:1.7;opacity:.72">PDF · PAGE 2 · 1.2 MB<br>PHONE › DOCUMENTS › BOARD</div>
+              <div style="margin-top:auto;height:56px;border-radius:99px;background:#0c0c0d;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;flex:none">
+                <span style="font-size:15.5px;font-weight:700">Open file</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:2px;display:flex;align-items:center;justify-content:center;gap:8px">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.4"><path d="M12 8.5v10M8 14.5l4 4 4-4"/></svg>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#7c7e79">DRAG FOR THE OTHER TWO</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1p" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1p" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1P</a> CHAT — ANSWER + FILE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Ask</span>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 5.5v13M5.5 12h13"/></svg>
+            </div>
+          </div>
+
+          <div style="flex:1;min-height:0;margin-top:18px;display:flex;flex-direction:column;gap:12px;overflow:hidden">
+            <div style="align-self:flex-end;max-width:84%;border-radius:24px 24px 8px 24px;background:var(--acc,#59d3ff);color:#0c0c0d;padding:14px 18px;font-size:15px;font-weight:600;line-height:1.45">What did we agree on pricing in the board call?</div>
+            <div style="align-self:flex-start;max-width:90%;border-radius:24px 24px 24px 8px;background:#191a1b;padding:16px 18px;font-size:15px;line-height:1.5;color:#e6e7e4">Three tiers, billed annually — Solo $12, Team $29 a seat, Scale on quote. Entry moved from $9 on 14 Aug.</div>
+            <div style="border-radius:24px;background:#fff;color:#101010;padding:16px;display:flex;align-items:center;gap:13px">
+              <div style="width:46px;height:46px;border-radius:15px;background:#f3f5f0;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="1.9"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:15px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pricing-schedule-v4.pdf</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#6b6f67;margin-top:3px">PHONE › DOCUMENTS › BOARD</div>
+              </div>
+              <div style="height:38px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;padding:0 14px;font-size:13.5px;font-weight:700;flex:none">Open</div>
+            </div>
+            <div style="border-radius:24px;background:#191a1b;padding:16px;display:flex;align-items:center;gap:13px">
+              <div style="width:46px;height:46px;border-radius:15px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M4 12v3M8 8.5v10M12 5.5v14M16 9v8M20 12v3"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:15px;font-weight:700;letter-spacing:-.015em">board-call-14-aug.m4a</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">FROM 18:20</div>
+              </div>
+              <div style="height:38px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;padding:0 14px;font-size:13.5px;font-weight:700;flex:none">Open</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;display:flex;gap:9px">
+            <div style="flex:1;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 22px;font-size:15px;color:#7c7e79">Ask a follow-up…</div>
+            <div style="width:58px;height:58px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.1"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">D · PROFILE, PRICING AND PAYMENT</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content">
+
+    <div id="1q" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1q" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1Q</a> PROFILE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:14px;flex:none">
+            <div style="width:54px;height:54px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex:none">SK</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:24px;font-weight:800;letter-spacing:-.035em;line-height:1">Sam Kaur</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:6px">SAM@NORTHWIND.CO</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">YOUR PLAN</div>
+                <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:8px">Free</div>
+              </div>
+              <div style="height:40px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;padding:0 18px;font-size:14px;font-weight:700;flex:none">Upgrade</div>
+            </div>
+            <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-size:13.5px;font-weight:600;color:#3b4237">Storage</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12.5px;font-weight:600">9.1 / 15 GB</span>
+            </div>
+            <div style="height:10px;border-radius:99px;background:#eceee9;margin-top:8px;overflow:hidden"><div style="width:61%;height:10px;border-radius:99px;background:#101010"></div></div>
+            <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-size:13.5px;font-weight:600;color:#3b4237">Asks this month</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12.5px;font-weight:600">42 / 100</span>
+            </div>
+            <div style="height:10px;border-radius:99px;background:#eceee9;margin-top:8px;overflow:hidden"><div style="width:42%;height:10px;border-radius:99px;background:#101010"></div></div>
+            <div style="font-size:12.5px;line-height:1.55;color:#6b6f67;margin-top:16px">Memories are kept 30 days on Free, forever on Pro.</div>
+          </div>
+
+          <div style="margin-top:14px;border-radius:28px;background:#191a1b;overflow:hidden;flex:none">
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M4 7.5 12 3.5l8 4v9L12 20.5l-8-4z"/><path d="M12 12v8.5M4 7.5l8 4.5 8-4.5"/></svg>
+              <span style="flex:1;font-size:15px;font-weight:600">Vault and storage</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              <span style="flex:1;font-size:15px;font-weight:600">How you ask</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:var(--acc,#59d3ff)">VOICE</span>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M12 3.5l7 3v5.5c0 4-3 7-7 8.5-4-1.5-7-4.5-7-8.5V6.5z"/></svg>
+              <span style="flex:1;font-size:15px;font-weight:600">Privacy and data</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;flex:none">
+            <div style="height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Sign out</div>
+            <div style="display:flex;gap:9px">
+              <div style="flex:1;height:54px;border-radius:99px;background:#191a1b;color:#c9cac7;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600">Deactivate</div>
+              <div style="flex:1;height:54px;border-radius:99px;background:#241516;color:#ff6a5a;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600">Delete account</div>
+            </div>
+          </div>
+
+          <div style="margin-top:auto;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1r" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1r" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1R</a> VAULT (INSIDE PROFILE)</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:24px;font-weight:800;letter-spacing:-.035em">Vault</span>
+          </div>
+
+          <div style="margin-top:18px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">INDEXED ON DEVICE</div>
+            <div style="font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:8px">1,516 files</div>
+            <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+              <div style="height:32px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:600">248 documents</div>
+              <div style="height:32px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:600">64 recordings</div>
+              <div style="height:32px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:600">1,204 images</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;border-radius:28px;background:#191a1b;overflow:hidden;flex:none">
+            <div style="display:flex;align-items:center;gap:13px;height:64px;padding:0 18px">
+              <div style="width:38px;height:38px;border-radius:12px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><path d="M9 3.5h6l6 10.5h-6zM9 3.5 3 14l3 5 6-10.5zM6 19h12l3-5H9z"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:15px;font-weight:600">Google Drive</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">CONNECTED · 842 INDEXED</div>
+              </div>
+              <div style="width:10px;height:10px;border-radius:99px;background:var(--acc,#59d3ff);flex:none"></div>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:64px;padding:0 18px">
+              <div style="width:38px;height:38px;border-radius:12px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><rect x="6" y="2.5" width="12" height="19" rx="3.5"/><path d="M10 18.5h4"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:15px;font-weight:600">Phone vault</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">674 INDEXED · 9.1 GB</div>
+              </div>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;display:flex;flex-direction:column;gap:9px">
+            <div style="height:56px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:700">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.3"><path d="M12 5.5v13M5.5 12h13"/></svg>
+              Add a source
+            </div>
+            <div style="height:56px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#c9cac7">Rebuild index</div>
+          </div>
+
+          <div style="margin-top:14px;border-radius:22px;background:#141516;padding:16px 18px;flex:none">
+            <span style="font-size:12.5px;line-height:1.5;color:#8b8d88">Removing a source deletes only its index. Your files stay where they are.</span>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1s" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1s" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1S</a> PRICING</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1"></span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">RESTORE</span>
+          </div>
+          <div style="margin-top:22px;flex:none">
+            <div style="font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Keep everything,<br>forever</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:12px">Free keeps memories 30 days. Pro never forgets.</div>
+          </div>
+          <div style="margin-top:20px;height:50px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+            <div style="flex:1;height:40px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#8b8d88">Monthly</div>
+            <div style="flex:1;height:40px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:700">Yearly
+              <span style="height:20px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;padding:0 7px;font-family:'Martian Mono',ui-monospace,monospace;font-size:8.5px;font-weight:600">−20%</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">RECOMMENDED</div>
+                <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:8px">Pro</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1">$8</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.05em;color:#6b6f67;margin-top:4px">PER MONTH · $96/YR</div>
+              </div>
+            </div>
+            <div style="height:1px;background:#e4e7e1;margin:18px 0"></div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.6" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span style="font-size:13.5px;font-weight:600">Memories kept forever</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.6" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span style="font-size:13.5px;font-weight:600">1 TB indexed, unlimited asks</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.6" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span style="font-size:13.5px;font-weight:600">Drive stays connected</span></div>
+            </div>
+          </div>
+          <div style="margin-top:10px;border-radius:28px;background:#191a1b;padding:20px;flex:none">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:18px;font-weight:800;letter-spacing:-.025em">Free</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">CURRENT</div>
+            </div>
+            <div style="font-size:13px;line-height:1.55;color:#8b8d88;margin-top:8px">15 GB · 100 asks a month · 30-day memory</div>
+          </div>
+          <div style="margin-top:auto;flex:none;display:flex;flex-direction:column;gap:10px">
+            <div style="height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Start 7 days free
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+            <div style="text-align:center;font-size:12.5px;color:#7c7e79">Then $96 a year. Cancel any time.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1t" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1t" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1T</a> PAYMENT SHEET</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff">
+          <div style="padding:56px 16px;opacity:.25">
+            <div style="margin-top:20px;font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Keep everything,<br>forever</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;color:#101010;border-radius:30px 30px 0 0;padding:20px 18px 30px">
+            <div style="width:40px;height:4px;border-radius:99px;background:#dfe2dc;margin:0 auto 20px"></div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="40" height="40" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#101010"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:17px;font-weight:800;letter-spacing:-.025em">Hawk Pro · Yearly</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#6b6f67;margin-top:3px">7 DAYS FREE, THEN $96/YR</div>
+              </div>
+            </div>
+            <div style="margin-top:18px;border-radius:22px;background:#f3f5f0;overflow:hidden">
+              <div style="display:flex;align-items:center;gap:12px;padding:15px 16px">
+                <div style="width:40px;height:28px;border-radius:6px;background:#101010;display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/></svg>
+                </div>
+                <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Visa ···· 4218</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.05em;color:#6b6f67;margin-top:2px">EXPIRES 04/29</div></div>
+                <div style="width:22px;height:22px;border-radius:99px;background:#101010;display:flex;align-items:center;justify-content:center;flex:none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              </div>
+              <div style="height:1px;background:#e4e7e1"></div>
+              <div style="display:flex;align-items:center;gap:12px;padding:15px 16px">
+                <div style="width:40px;height:28px;border-radius:6px;background:#e4e7e1;display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.2"><path d="M12 5.5v13M5.5 12h13"/></svg>
+                </div>
+                <div style="flex:1;font-size:14.5px;font-weight:600">Add a card</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;display:flex;flex-direction:column;gap:9px">
+              <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#3b4237">Today</span><span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:13px;font-weight:600">$0.00</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#3b4237">29 Sep 2026</span><span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:13px;font-weight:600">$96.00</span></div>
+            </div>
+            <div style="margin-top:18px;height:56px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              Confirm with Face ID
+            </div>
+            <div style="text-align:center;font-size:12px;color:#6b6f67;margin-top:12px">Cancel any time before 29 Sep and you won't be charged.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1u" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1u" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1U</a> PRO ACTIVE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:14px;flex:none">
+            <div style="width:54px;height:54px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex:none">SK</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:24px;font-weight:800;letter-spacing:-.035em;line-height:1">Sam Kaur</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:6px">SAM@NORTHWIND.CO</div>
+            </div>
+          </div>
+          <div style="margin-top:18px;border-radius:28px;background:var(--acc,#59d3ff);color:#0c0c0d;padding:22px;flex:none">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;opacity:.7">YOUR PLAN</div>
+                <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:8px">Pro</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:#0c0c0d;color:#fff;display:flex;align-items:center;padding:0 13px;font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.06em;flex:none">TRIAL · 6 DAYS</div>
+            </div>
+            <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-size:13.5px;font-weight:600">Storage</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12.5px;font-weight:600">9.1 GB / 1 TB</span>
+            </div>
+            <div style="height:10px;border-radius:99px;background:rgba(12,12,13,.18);margin-top:8px;overflow:hidden"><div style="width:4%;height:10px;border-radius:99px;background:#0c0c0d"></div></div>
+            <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-size:13.5px;font-weight:600">Asks this month</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12.5px;font-weight:600">42 · unlimited</span>
+            </div>
+            <div style="font-size:12.5px;line-height:1.55;margin-top:16px;opacity:.75">Renews 29 Sep 2026 at $96. Memories kept forever.</div>
+          </div>
+          <div style="margin-top:14px;border-radius:28px;background:#191a1b;overflow:hidden;flex:none">
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600">Billing and receipts</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600">Payment method</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">VISA 4218</span>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600;color:#c9cac7">Cancel subscription</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">E · PLAN LIMITS — LOCKED STATES AND ALERTS</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content">
+
+    <div id="1v" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1v" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1V</a> LIBRARY — QUOTA REACHED</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <span style="flex:1;font-size:28px;font-weight:800;letter-spacing:-.035em">Library</span>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;border-radius:28px;background:#fff;color:#101010;padding:20px;flex:none">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <div style="font-size:19px;font-weight:800;letter-spacing:-.025em">Storage full</div>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600">15 / 15 GB</span>
+            </div>
+            <div style="height:10px;border-radius:99px;background:#eceee9;margin-top:12px;overflow:hidden"><div style="width:100%;height:10px;border-radius:99px;background:#101010"></div></div>
+            <div style="font-size:13px;line-height:1.55;color:#3b4237;margin-top:12px;text-wrap:pretty">New uploads are paused. Free up space or move to Pro for 1 TB.</div>
+            <div style="display:flex;gap:9px;margin-top:16px">
+              <div style="flex:1;height:46px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">Free up</div>
+              <div style="flex:1;height:46px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">Go Pro</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;flex:none">
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#141516;padding:13px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#56585a" stroke-width="2"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"/><path d="M14 3v4h4"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em;color:#56585a">Files</span>
+              <div style="position:absolute;top:11px;right:11px;width:22px;height:22px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="2.4"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              </div>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#141516;padding:13px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#56585a" stroke-width="2"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 16.5 8.5 13l3.5 2.5L15.5 12l5 4.5"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em;color:#56585a">Images</span>
+              <div style="position:absolute;top:11px;right:11px;width:22px;height:22px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="2.4"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              </div>
+            </div>
+            <div style="aspect-ratio:1/.95;border-radius:22px;background:#141516;padding:13px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#56585a" stroke-width="2"><path d="M10 13.5a3.5 3.5 0 0 0 5 0l3-3a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14 10.5a3.5 3.5 0 0 0-5 0l-3 3a3.5 3.5 0 0 0 5 5l1-1"/></svg>
+              <span style="font-size:13.5px;font-weight:700;letter-spacing:-.01em;color:#56585a">Links</span>
+              <div style="position:absolute;top:11px;right:11px;width:22px;height:22px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="2.4"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;align-items:baseline;justify-content:space-between;flex:none">
+            <span style="font-size:15px;font-weight:700;letter-spacing:-.02em">Expiring soon</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">3 ITEMS</span>
+          </div>
+
+          <div style="margin-top:10px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M4 12v3M8 8.5v10M12 5.5v14M16 9v8M20 12v3"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">standup-25-aug.m4a</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">DELETED IN 2 DAYS</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;flex:none">Keep</div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:42px;height:42px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 16.5 8.5 13l3.5 2.5L15.5 12l5 4.5"/></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">whiteboard-tiers.jpg</div>
+                <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">DELETED IN 5 DAYS</div>
+              </div>
+              <div style="height:32px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;flex:none">Keep</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1w" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1w" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1W</a> ASK LIMIT — BLOCKING SHEET</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff">
+          <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:56px 16px;opacity:.22">
+            <img src="assets/orb_listen_0.png" alt="" style="width:200px;height:200px;object-fit:contain;display:block">
+            <div style="font-size:30px;font-weight:800;letter-spacing:-.035em">Hold to ask</div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;color:#101010;border-radius:30px 30px 0 0;padding:20px 18px 30px">
+            <div style="width:40px;height:4px;border-radius:99px;background:#dfe2dc;margin:0 auto 20px"></div>
+            <div style="width:52px;height:52px;border-radius:99px;background:#101010;display:flex;align-items:center;justify-content:center">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <div style="font-size:26px;font-weight:800;letter-spacing:-.035em;line-height:1.08;margin-top:16px">You've used all 100<br>asks this month</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#3b4237;margin-top:12px;text-wrap:pretty">Your library stays indexed and searchable. Asking resumes on 1 Oct, or right now on Pro.</div>
+            <div style="margin-top:18px;border-radius:22px;background:#f3f5f0;padding:16px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between">
+                <span style="font-size:13.5px;font-weight:600;color:#3b4237">Asks used</span>
+                <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12.5px;font-weight:600">100 / 100</span>
+              </div>
+              <div style="height:10px;border-radius:99px;background:#e0e3dd;margin-top:10px;overflow:hidden"><div style="width:100%;height:10px;border-radius:99px;background:#101010"></div></div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#6b6f67;margin-top:10px">RESETS IN 9 DAYS</div>
+            </div>
+            <div style="margin-top:18px;height:56px;border-radius:99px;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Unlock unlimited asks
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+            <div style="text-align:center;font-size:14px;font-weight:600;color:#6b6f67;margin-top:14px">Wait until 1 Oct</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1x" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1x" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1X</a> ALERT PATTERNS · COMPONENT SHEET</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px;gap:12px">
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none">BANNER · HOME HEADER</div>
+          <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px;flex:none">
+            <div style="width:38px;height:38px;border-radius:12px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V13"/><path d="M12 16.2v.5"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">82 of 100 asks used</div>
+              <div style="font-size:12.5px;line-height:1.5;color:#8b8d88;margin-top:2px">Resets in 9 days</div>
+            </div>
+            <div style="height:32px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:700;flex:none">Upgrade</div>
+          </div>
+
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none;margin-top:6px">TOAST · AFTER AN UPLOAD</div>
+          <div style="border-radius:22px;background:#fff;color:#101010;padding:16px 18px;display:flex;align-items:center;gap:13px;flex:none">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2" style="flex:none"><path d="M12 4.5 20.5 19h-17z"/><path d="M12 10v4M12 16.5v.5"/></svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Indexed, expires in 30 days</div>
+              <div style="font-size:12.5px;line-height:1.5;color:#6b6f67;margin-top:2px">Free plan memory window</div>
+            </div>
+            <div style="font-size:12.5px;font-weight:700;text-decoration:underline;flex:none">Keep</div>
+          </div>
+
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none;margin-top:6px">INLINE LOCK · LIBRARY ROW</div>
+          <div style="border-radius:22px;background:#141516;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:42px;height:42px;border-radius:14px;background:#1f2021;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#56585a" stroke-width="2"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;color:#8b8d88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">q3-review-deck.pdf</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#56585a;margin-top:3px">OVER QUOTA · NOT INDEXED</div>
+            </div>
+            <div style="height:32px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;color:#c9cac7;flex:none">Unlock</div>
+          </div>
+
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none;margin-top:6px">TRIAL STRIP · PROFILE</div>
+          <div style="border-radius:22px;background:var(--acc,#59d3ff);color:#0c0c0d;padding:16px 18px;display:flex;align-items:center;gap:13px;flex:none">
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:800;letter-spacing:-.02em">6 days of Pro left</div>
+              <div style="font-size:12.5px;line-height:1.5;margin-top:2px;opacity:.75">$96 on 29 Sep unless cancelled</div>
+            </div>
+            <div style="height:32px;border-radius:99px;background:#0c0c0d;color:#fff;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:700;flex:none">Manage</div>
+          </div>
+
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none;margin-top:6px">FAILED PAYMENT · BLOCKING</div>
+          <div style="border-radius:22px;background:#241516;padding:16px 18px;display:flex;align-items:center;gap:13px;flex:none">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#ff6a5a" stroke-width="2" style="flex:none"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;color:#ff8f82">Payment failed</div>
+              <div style="font-size:12.5px;line-height:1.5;color:#c98f8a;margin-top:2px">Pro pauses in 3 days</div>
+            </div>
+            <div style="height:32px;border-radius:99px;background:#ff6a5a;color:#241516;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:700;flex:none">Fix</div>
+          </div>
+
+          <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;flex:none;margin-top:6px">DOWNGRADE · GRACE PERIOD</div>
+          <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px;flex:none">
+            <div style="width:38px;height:38px;border-radius:12px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Back on Free in 14 days</div>
+              <div style="font-size:12.5px;line-height:1.5;color:#8b8d88;margin-top:2px">842 memories over the 15 GB limit</div>
+            </div>
+            <div style="height:32px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;padding:0 13px;font-size:12.5px;font-weight:700;color:#c9cac7;flex:none">Review</div>
+          </div>
+
+          <div style="margin-top:auto;flex:none;border-radius:18px;background:#141516;padding:14px 16px">
+            <span style="font-size:12px;line-height:1.5;color:#8b8d88">Component sheet — these appear inside real screens, never stacked together like this.</span>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">F · HOME AND SEARCH ROUTES</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="1y" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1y" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1Y</a> HOME — VOICE DEFAULT</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">Hi, Sam</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;margin-top:2px">1,516 MEMORIES READY</div>
+            </div>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            </div>
+          </div>
+          <div style="margin-top:16px;height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+            <div style="flex:1;height:44px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              Speak
+            </div>
+            <div style="flex:1;height:44px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:600;color:#8b8d88">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M9 9.5h6M12 9.5V16"/></svg>
+              Type
+            </div>
+          </div>
+          <div style="margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+            <img src="assets/orb_listen_0.png" alt="" style="width:228px;height:228px;object-fit:contain;display:block">
+            <div style="text-align:center">
+              <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1.05">Hold to ask</div>
+              <div style="font-size:14px;color:#a4a6a1;margin-top:10px">Answers open the actual file.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex:none;overflow:hidden;margin-bottom:14px">
+            <div style="height:40px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 15px;font-size:13.5px;font-weight:600;white-space:nowrap">Pricing we agreed</div>
+            <div style="height:40px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 15px;font-size:13.5px;font-weight:600;white-space:nowrap">Lease PDF</div>
+            <div style="height:40px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 15px;font-size:13.5px;font-weight:600;white-space:nowrap">Standup</div>
+          </div>
+          <div style="flex:none;height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+            <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+            <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="1z" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#1z" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">1Z</a> HOME — CHAT DEFAULT</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" style="flex:none;display:block"><circle cx="32" cy="32" r="24" fill="#fff"/><circle cx="24" cy="24" r="7" fill="var(--acc,#59d3ff)"/></svg>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:16px;font-weight:700;letter-spacing:-.02em">Hi, Sam</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88;margin-top:2px">1,516 MEMORIES READY</div>
+            </div>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 5.5v13M5.5 12h13"/></svg>
+            </div>
+          </div>
+          <div style="margin-top:16px;height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:5px;flex:none">
+            <div style="flex:1;height:44px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:600;color:#8b8d88">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b8d88" stroke-width="2.2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              Speak
+            </div>
+            <div style="flex:1;height:44px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M9 9.5h6M12 9.5V16"/></svg>
+              Type
+            </div>
+          </div>
+          <div style="margin-top:22px;flex:none">
+            <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Ask your library</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#a4a6a1;margin-top:12px">Answers come back with the file they came from.</div>
+          </div>
+          <div style="margin-top:20px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">START WITH</div>
+            <div style="margin-top:10px;display:flex;flex-direction:column;gap:9px">
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:12px">
+                <span style="flex:1;font-size:14.5px;font-weight:600">What did we agree on pricing?</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+              </div>
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:12px">
+                <span style="flex:1;font-size:14.5px;font-weight:600">Find the lease PDF from March</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+              </div>
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:12px">
+                <span style="flex:1;font-size:14.5px;font-weight:600">Summarise yesterday's standup</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:9px">
+              <div style="flex:1;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 22px;font-size:15px;color:#7c7e79">Ask anything…</div>
+              <div style="width:58px;height:58px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.1"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+              </div>
+            </div>
+            <div style="height:62px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:space-around;padding:0 8px">
+              <div style="width:46px;height:46px;border-radius:99px;background:#2a2c2d;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><path d="M4 11l8-6.5 8 6.5v8.5H4z"/></svg></div>
+              <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><path d="M4 7h11M4 12h16M4 17h8"/></svg></div>
+              <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.1"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2a" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2a" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2A</a> NOTHING FOUND</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">No match</span>
+          </div>
+          <div style="margin-top:16px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">YOU ASKED</div>
+            <div style="font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.18;margin-top:10px;text-wrap:pretty">"The insurance renewal from last winter"</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#3b4237;margin-top:14px;text-wrap:pretty">Nothing in your library matches. It may not be indexed yet.</div>
+          </div>
+          <div style="margin-top:16px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">TRY THIS</div>
+            <div style="margin-top:10px;display:flex;flex-direction:column;gap:9px">
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9" style="flex:none"><path d="M9 3.5h6l6 10.5h-6zM9 3.5 3 14l3 5 6-10.5zM6 19h12l3-5H9z"/></svg>
+                <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Index 9,570 more Drive files</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Not searched yet</div></div>
+              </div>
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" style="flex:none"><rect x="3.5" y="8" width="17" height="11" rx="3"/><path d="M8 8V5.5h8V8"/></svg>
+                <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Add it now</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Scan, upload or paste a link</div></div>
+              </div>
+              <div style="border-radius:22px;background:#191a1b;padding:16px 18px;display:flex;align-items:center;gap:13px">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" style="flex:none"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+                <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Search filenames instead</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Exact text match</div></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+            Ask again
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">G · UPLOAD ROUTES</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="2b" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2b" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2B</a> FILES — MULTI-SELECT</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Files</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:var(--acc,#59d3ff)">4 SELECTED</span>
+          </div>
+          <div style="margin-top:14px;height:50px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 20px;gap:11px;flex:none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <span style="font-size:14.5px;color:#7c7e79">Search this device</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex:none;overflow:hidden">
+            <div style="height:34px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;padding:0 14px;font-size:13px;font-weight:700;white-space:nowrap">Recent</div>
+            <div style="height:34px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 14px;font-size:13px;font-weight:600;white-space:nowrap">PDF</div>
+            <div style="height:34px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 14px;font-size:13px;font-weight:600;white-space:nowrap">Docs</div>
+            <div style="height:34px;border-radius:99px;background:#191a1b;display:flex;align-items:center;padding:0 14px;font-size:13px;font-weight:600;white-space:nowrap">Folders</div>
+          </div>
+          <div style="margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#1f2021;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:24px;height:24px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">board-pack-sep.pdf</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">4.2 MB · PDF</div></div>
+            </div>
+            <div style="border-radius:22px;background:#1f2021;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:24px;height:24px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">lease-mercer-st.pdf</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">1.1 MB · PDF</div></div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:24px;height:24px;border-radius:99px;border:2px solid #3a3c3d;flex:none"></div>
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">expenses-aug.xlsx</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">220 KB · SHEET</div></div>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:24px;height:24px;border-radius:99px;border:2px solid #3a3c3d;flex:none"></div>
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">handbook-v2.docx</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">860 KB · DOC</div></div>
+            </div>
+          </div>
+          <div style="margin-top:14px;flex:none">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#8b8d88">
+              <span>TO INDEX</span><span style="color:#fff">4 FILES · 7.4 MB</span>
+            </div>
+            <div style="height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Index 4 files
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2c" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2c" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2C</a> IMAGES — PICK OR CAPTURE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Images</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:var(--acc,#59d3ff)">3 SELECTED</span>
+          </div>
+          <div style="margin-top:14px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:min-content;gap:6px;overflow:hidden">
+            <div style="aspect-ratio:1;border-radius:14px;background:#191a1b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2"><path d="M3.5 8h3L8 5.5h8L17.5 8h3v11h-17z"/><circle cx="12" cy="13.5" r="3.4"/></svg>
+              <span style="font-size:10.5px;font-weight:700;color:#c9cac7">Camera</span>
+            </div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#2f3a3d;position:relative"><div style="position:absolute;top:7px;right:7px;width:20px;height:20px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#3d3a33"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#33383d;position:relative"><div style="position:absolute;top:7px;right:7px;width:20px;height:20px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#2b3336"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#3a3330;position:relative"><div style="position:absolute;top:7px;right:7px;width:20px;height:20px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="3.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#303538"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#383b33"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#2e3134"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#373033"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#2b2f36"></div>
+            <div style="aspect-ratio:1;border-radius:14px;background:#343a36"></div>
+          </div>
+          <div style="margin-top:14px;flex:none;border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:11px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9" style="flex:none"><path d="M4 7h16v12H4z"/><path d="M8 11h8M8 15h5"/></svg>
+            <span style="font-size:12.5px;line-height:1.5;color:#c9cac7">Text inside images is read and indexed too.</span>
+          </div>
+          <div style="margin-top:12px;flex:none;height:58px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Index 3 images
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2d" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2d" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2D</a> LINK</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" keyboard="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 20px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Link</span>
+          </div>
+          <div style="margin-top:22px;flex:none">
+            <div style="font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1.02">Paste a public URL</div>
+            <div style="font-size:14px;line-height:1.6;color:#a4a6a1;margin-top:10px">The page is read once and indexed. Pages behind a login won't work.</div>
+          </div>
+          <div style="margin-top:20px;flex:none">
+            <div style="min-height:58px;border-radius:26px;background:#191a1b;border:1.5px solid var(--acc,#59d3ff);display:flex;align-items:center;padding:14px 20px;gap:2px">
+              <span style="font-size:14.5px;line-height:1.4;word-break:break-all">northwind.co/blog/pricing-2026</span>
+              <div style="width:2px;height:20px;background:var(--acc,#59d3ff);flex:none"></div>
+            </div>
+          </div>
+          <div style="margin-top:12px;border-radius:22px;background:#191a1b;padding:16px;display:flex;gap:13px;flex:none">
+            <div style="width:52px;height:52px;border-radius:14px;background:#2a2c2d;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9"><path d="M10 13.5a3.5 3.5 0 0 0 5 0l3-3a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14 10.5a3.5 3.5 0 0 0-5 0l-3 3a3.5 3.5 0 0 0 5 5l1-1"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Pricing in 2026 — Northwind</div>
+              <div style="font-size:12.5px;line-height:1.5;color:#8b8d88;margin-top:3px;text-wrap:pretty">How we set tiers, and why entry moved to $12.</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.05em;color:#7c7e79;margin-top:6px">READABLE · 1,240 WORDS</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;flex:none;height:56px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:700">Index this page
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c0c0d" stroke-width="2.4"><path d="M5 12h13M13 7l5 5-5 5"/></svg>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2e" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2e" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2E</a> SCAN</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#17191a;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Scan</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#c9cac7">AUTO</span>
+          </div>
+          <div style="margin-top:18px;flex:1;min-height:0;display:flex;align-items:center;justify-content:center">
+            <div style="position:relative;width:100%;height:100%;border-radius:20px;background:#22262a;overflow:hidden;display:flex;align-items:center;justify-content:center">
+              <div style="width:74%;height:76%;background:#e9eae5;border-radius:3px;padding:20px 18px">
+                <div style="height:7px;width:52%;background:#c6c8c2;border-radius:2px"></div>
+                <div style="height:5px;width:88%;background:#d5d7d1;border-radius:2px;margin-top:14px"></div>
+                <div style="height:5px;width:82%;background:#d5d7d1;border-radius:2px;margin-top:8px"></div>
+                <div style="height:5px;width:90%;background:#d5d7d1;border-radius:2px;margin-top:8px"></div>
+                <div style="height:5px;width:60%;background:#d5d7d1;border-radius:2px;margin-top:8px"></div>
+                <div style="height:5px;width:86%;background:#d5d7d1;border-radius:2px;margin-top:20px"></div>
+                <div style="height:5px;width:74%;background:#d5d7d1;border-radius:2px;margin-top:8px"></div>
+              </div>
+              <div style="position:absolute;left:11%;top:10%;width:78%;height:80%;border:3px solid var(--acc,#59d3ff);border-radius:6px"></div>
+              <div style="position:absolute;left:50%;top:10%;transform:translateX(-50%);height:30px;border-radius:99px;background:#0c0c0d;display:flex;align-items:center;padding:0 13px;font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:var(--acc,#59d3ff)">EDGES FOUND</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;flex:none;display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;gap:7px">
+              <div style="width:40px;height:52px;border-radius:6px;background:#e9eae5"></div>
+              <div style="width:40px;height:52px;border-radius:6px;background:#e9eae5"></div>
+            </div>
+            <div style="width:74px;height:74px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+              <div style="width:56px;height:56px;border-radius:99px;border:3px solid #0c0c0d"></div>
+            </div>
+            <div style="height:44px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;padding:0 18px;font-size:14.5px;font-weight:700">Done · 2</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2f" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2f" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2F</a> SPEAK — RECORDING</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Speak</span>
+            <div style="height:34px;border-radius:99px;background:#241516;display:flex;align-items:center;gap:8px;padding:0 13px">
+              <span style="width:7px;height:7px;border-radius:99px;background:#ff6a5a"></span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#ff8f82">REC</span>
+            </div>
+          </div>
+          <div style="margin-top:24px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:44px;font-weight:500;letter-spacing:-.04em;line-height:1">01:38</div>
+            <div style="font-size:14px;color:#a4a6a1;margin-top:8px">Saved as a memory and transcribed on device.</div>
+          </div>
+          <div style="margin-top:20px;flex:none;display:flex;align-items:flex-end;gap:3px;height:70px">
+            <div style="flex:1;height:22%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:48%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:70%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:36%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:84%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:56%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:30%;border-radius:99px;background:#2a2c2d"></div>
+            <div style="flex:1;height:66%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="flex:1;height:100%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="flex:1;height:44%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="flex:1;height:74%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+            <div style="flex:1;height:26%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+          </div>
+          <div style="margin-top:20px;flex:1;min-height:0;border-radius:28px;background:#191a1b;padding:20px;overflow:hidden">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">LIVE TRANSCRIPT</div>
+            <div style="font-size:15px;line-height:1.6;color:#e6e7e4;margin-top:12px;text-wrap:pretty">Note for the board pack — entry tier holds at twelve dollars through Q1, and we revisit the enterprise floor after the Mercer renewal lands…</div>
+          </div>
+          <div style="margin-top:16px;flex:none;display:flex;align-items:center;gap:10px">
+            <div style="flex:1;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#c9cac7">Discard</div>
+            <div style="width:74px;height:74px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center;flex:none">
+              <div style="width:24px;height:24px;border-radius:7px;background:#0c0c0d"></div>
+            </div>
+            <div style="flex:1;height:58px;border-radius:99px;background:#fff;color:#101010;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Save</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2g" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2g" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2G</a> INDEXING QUEUE</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:18px;font-weight:700;letter-spacing:-.025em">Indexing</span>
+            <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">00:22 LEFT</span>
+          </div>
+          <div style="margin-top:16px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="display:flex;align-items:baseline;justify-content:space-between">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:30px;font-weight:600;letter-spacing:-.03em">3 / 4</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;color:#6b6f67">7.4 MB</span>
+            </div>
+            <div style="height:10px;border-radius:99px;background:#eceee9;margin-top:14px;overflow:hidden"><div style="width:75%;height:10px;border-radius:99px;background:#101010"></div></div>
+            <div style="font-size:13px;line-height:1.55;color:#3b4237;margin-top:12px">Searchable as soon as each one lands. You can leave this screen.</div>
+          </div>
+          <div style="margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2.4" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              <span style="flex:1;font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">board-pack-sep.pdf</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;flex:none">DONE</span>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="2.4" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              <span style="flex:1;font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">lease-mercer-st.pdf</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;flex:none">DONE</span>
+            </div>
+            <div style="border-radius:22px;background:#1f2021;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:18px;height:18px;border-radius:99px;border:2.5px solid #3a3c3d;border-top-color:var(--acc,#59d3ff);flex:none"></div>
+              <span style="flex:1;font-size:14.5px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">whiteboard-tiers.jpg</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:var(--acc,#59d3ff);flex:none">READING TEXT</span>
+            </div>
+            <div style="border-radius:22px;background:#141516;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="width:18px;height:18px;border-radius:99px;border:2.5px solid #2a2c2d;flex:none"></div>
+              <span style="flex:1;font-size:14.5px;font-weight:700;letter-spacing:-.015em;color:#8b8d88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">standup-25-aug.m4a</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#56585a;flex:none">QUEUED</span>
+            </div>
+            <div style="border-radius:22px;background:#241516;padding:14px 16px;display:flex;align-items:center;gap:12px;flex:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6a5a" stroke-width="2.2" style="flex:none"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em;color:#ff8f82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">handbook-v2.docx</div>
+                <div style="font-size:12px;color:#c98f8a;margin-top:2px">Password protected</div>
+              </div>
+              <span style="font-size:12.5px;font-weight:700;color:#ff8f82;flex:none">Retry</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;flex:none;height:58px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#c9cac7">Keep going in the background</div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">H · VIEWER ROUTES</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content;margin-bottom:44px">
+
+    <div id="2h" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2h" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2H</a> AUDIO PLAYER</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">board-call-14-aug.m4a</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:2px">PHONE › VOICE NOTES</div>
+            </div>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;border-radius:28px;background:#191a1b;padding:20px;flex:none">
+            <div style="display:flex;align-items:flex-end;gap:2.5px;height:56px">
+              <div style="flex:1;height:30%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:58%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:44%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:82%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:66%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:100%;border-radius:99px;background:var(--acc,#59d3ff)"></div>
+              <div style="flex:1;height:38%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:70%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:52%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:26%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:62%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:34%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:76%;border-radius:99px;background:#2f3133"></div>
+              <div style="flex:1;height:42%;border-radius:99px;background:#2f3133"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;font-family:'Martian Mono',ui-monospace,monospace;font-size:10.5px;color:#8b8d88">
+              <span style="color:#fff">18:20</span><span>41:07</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-top:16px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9cac7" stroke-width="2"><path d="M11 12 19 6.5v11z"/><path d="M5 6.5v11"/></svg>
+              <div style="width:62px;height:62px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:center">
+                <div style="display:flex;gap:5px"><div style="width:5px;height:22px;border-radius:2px;background:#0c0c0d"></div><div style="width:5px;height:22px;border-radius:2px;background:#0c0c0d"></div></div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9cac7" stroke-width="2"><path d="M13 12 5 6.5v11z"/><path d="M19 6.5v11"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:1;min-height:0;border-radius:28px;background:#fff;color:#101010;padding:20px;overflow:hidden">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">TRANSCRIPT</div>
+            <div style="margin-top:14px;display:flex;gap:11px">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;color:#6b6f67;flex:none;padding-top:2px">17:52</span>
+              <span style="font-size:13.5px;line-height:1.6;color:#6b6f67">…so the support load per seat is the constraint, not the hosting.</span>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:11px">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;color:#101010;flex:none;padding-top:2px;font-weight:600">18:20</span>
+              <span style="font-size:13.5px;line-height:1.6;font-weight:600"><span style="background:var(--acc,#59d3ff);box-decoration-break:clone;-webkit-box-decoration-break:clone">Agreed — we move entry from nine to twelve, Team stays at twenty-nine a seat.</span></span>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:11px">
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:10px;color:#6b6f67;flex:none;padding-top:2px">18:44</span>
+              <span style="font-size:13.5px;line-height:1.6;color:#6b6f67">And Scale stays on quote, with the forty thousand floor unchanged.</span>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2i" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2i" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2I</a> IMAGE VIEWER</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">whiteboard-tiers.jpg</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:2px">24 AUG · PHONE › PHOTOS</div>
+            </div>
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;flex:1;min-height:0;border-radius:20px;background:#17191a;padding:12px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+            <div style="position:relative;width:100%;aspect-ratio:4/3;background:#e7e8e3;border-radius:6px;padding:20px">
+              <div style="font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#23252a;transform:rotate(-1.5deg)">TIERS →</div>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px;transform:rotate(-.7deg)">
+                <div style="display:flex;align-items:center;gap:10px"><span style="font-size:12.5px;font-weight:600;color:#23252a">solo</span><span style="flex:1;height:2px;background:#b9bcb6"></span><span style="font-size:12.5px;font-weight:700;color:#23252a;background:var(--acc,#59d3ff);padding:0 4px">$12</span></div>
+                <div style="display:flex;align-items:center;gap:10px"><span style="font-size:12.5px;font-weight:600;color:#23252a">team</span><span style="flex:1;height:2px;background:#b9bcb6"></span><span style="font-size:12.5px;font-weight:700;color:#23252a">$29/seat</span></div>
+                <div style="display:flex;align-items:center;gap:10px"><span style="font-size:12.5px;font-weight:600;color:#23252a">scale</span><span style="flex:1;height:2px;background:#b9bcb6"></span><span style="font-size:12.5px;font-weight:700;color:#23252a">quote</span></div>
+              </div>
+              <div style="position:absolute;left:20px;bottom:18px;font-size:11px;color:#6c6f6a;transform:rotate(-1deg)">floor 40k — check w/ finance</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;flex:none;border-radius:22px;background:#191a1b;padding:16px 18px">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">TEXT READ FROM THIS IMAGE</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#e6e7e4;margin-top:10px;text-wrap:pretty">TIERS — solo $12 · team $29/seat · scale quote · floor 40k, check w/ finance</div>
+          </div>
+
+          <div style="margin-top:12px;flex:none;display:flex;gap:9px">
+            <div style="flex:1;height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;gap:9px;font-size:14.5px;font-weight:700">Open in Photos</div>
+            <div style="width:54px;height:54px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a5a" stroke-width="2"><path d="M5.5 7h13l-1 12.5h-11z"/><path d="M9 7V4.5h6V7"/></svg>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+
+  <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:#101010;margin:0 0 14px">I · ACCOUNT ROUTES</div>
+  <div style="display:flex;flex-wrap:nowrap;gap:18px;align-items:flex-start;width:max-content">
+
+    <div id="2j" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2j" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2J</a> BILLING AND RECEIPTS</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:24px;font-weight:800;letter-spacing:-.035em">Billing</span>
+          </div>
+          <div style="margin-top:18px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">NEXT CHARGE</div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:8px">
+              <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1">$96.00</div>
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:11px;font-weight:600">29 SEP 2026</div>
+            </div>
+            <div style="height:1px;background:#e4e7e1;margin:18px 0"></div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:40px;height:28px;border-radius:6px;background:#101010;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/></svg>
+              </div>
+              <div style="flex:1;font-size:14.5px;font-weight:700;letter-spacing:-.015em">Visa ···· 4218</div>
+              <div style="font-size:13px;font-weight:700;text-decoration:underline">Change</div>
+            </div>
+          </div>
+          <div style="margin-top:18px;flex:none;font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">RECEIPTS</div>
+          <div style="margin-top:10px;flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;overflow:hidden">
+            <div style="border-radius:22px;background:#191a1b;padding:15px 18px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Hawk Pro · Yearly</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">22 SEP 2026 · TRIAL STARTED</div></div>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12px;font-weight:600;flex:none">$0.00</span>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:15px 18px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Hawk Pro · Monthly</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">14 AUG 2026 · PAID</div></div>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12px;font-weight:600;flex:none">$10.00</span>
+            </div>
+            <div style="border-radius:22px;background:#191a1b;padding:15px 18px;display:flex;align-items:center;gap:12px;flex:none">
+              <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:700;letter-spacing:-.015em">Hawk Pro · Monthly</div><div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.05em;color:#8b8d88;margin-top:3px">14 JUL 2026 · PAID</div></div>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:12px;font-weight:600;flex:none">$10.00</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;flex:none;height:56px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:700;color:#c9cac7">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9cac7" stroke-width="2"><path d="M12 16V4m0 0-4 4m4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>
+            Export all receipts
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2k" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2k" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2K</a> PRIVACY AND DATA</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff;display:flex;flex-direction:column;padding:56px 16px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex:none">
+            <div style="width:44px;height:44px;border-radius:99px;background:#191a1b;display:flex;align-items:center;justify-content:center">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3"><path d="M14 5l-7 7 7 7"/></svg>
+            </div>
+            <span style="flex:1;font-size:24px;font-weight:800;letter-spacing:-.035em">Privacy</span>
+          </div>
+          <div style="margin-top:18px;border-radius:28px;background:#fff;color:#101010;padding:22px;flex:none">
+            <div style="font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.15">Everything is indexed on this device</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#3b4237;margin-top:12px;text-wrap:pretty">Your files, transcripts and the search index never leave the phone. Only anonymous crash reports are sent, and you can turn those off.</div>
+          </div>
+          <div style="margin-top:14px;border-radius:28px;background:#191a1b;overflow:hidden;flex:none">
+            <div style="display:flex;align-items:center;gap:13px;padding:16px 18px">
+              <div style="flex:1"><div style="font-size:15px;font-weight:600">Crash reports</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Anonymous, no file names</div></div>
+              <div style="width:46px;height:28px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:flex-end;padding:3px;flex:none"><div style="width:22px;height:22px;border-radius:99px;background:#0c0c0d"></div></div>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:16px 18px">
+              <div style="flex:1"><div style="font-size:15px;font-weight:600">Lock with Face ID</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Required to open Hawk</div></div>
+              <div style="width:46px;height:28px;border-radius:99px;background:var(--acc,#59d3ff);display:flex;align-items:center;justify-content:flex-end;padding:3px;flex:none"><div style="width:22px;height:22px;border-radius:99px;background:#0c0c0d"></div></div>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:16px 18px">
+              <div style="flex:1"><div style="font-size:15px;font-weight:600">Index on Wi-Fi only</div><div style="font-size:12.5px;color:#8b8d88;margin-top:2px">Applies to Drive sync</div></div>
+              <div style="width:46px;height:28px;border-radius:99px;background:#2f3133;display:flex;align-items:center;padding:3px;flex:none"><div style="width:22px;height:22px;border-radius:99px;background:#6b6d6f"></div></div>
+            </div>
+          </div>
+          <div style="margin-top:14px;border-radius:28px;background:#191a1b;overflow:hidden;flex:none">
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600">Export my data</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600">Clear the index</span>
+              <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#8b8d88">9.1 GB</span>
+            </div>
+            <div style="height:1px;background:#242627"></div>
+            <div style="display:flex;align-items:center;gap:13px;height:62px;padding:0 18px">
+              <span style="flex:1;font-size:15px;font-weight:600">Terms and policy</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c7e79" stroke-width="2.2"><path d="M10 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div style="margin-top:auto;flex:none;border-radius:22px;background:#141516;padding:16px 18px;display:flex;align-items:center;gap:11px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--acc,#59d3ff)" stroke-width="1.9" style="flex:none"><path d="M12 3.5l7 3v5.5c0 4-3 7-7 8.5-4-1.5-7-4.5-7-8.5V6.5z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span style="font-size:12.5px;line-height:1.5;color:#8b8d88">Clearing the index never deletes your original files.</span>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="2l" style="flex:none;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#3b4237"><a href="#2l" style="padding:3px 6px;background:#101010;color:#fff;border-radius:4px">2L</a> DELETE ACCOUNT</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="position:relative;height:100%;overflow:hidden;background:#0c0c0d;font-family:Archivo,system-ui,sans-serif;color:#fff">
+          <div style="padding:56px 16px;opacity:.22">
+            <div style="display:flex;align-items:center;gap:14px">
+              <div style="width:54px;height:54px;border-radius:99px;background:var(--acc,#59d3ff);color:#0c0c0d;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">SK</div>
+              <div style="font-size:24px;font-weight:800;letter-spacing:-.035em">Sam Kaur</div>
+            </div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;color:#101010;border-radius:30px 30px 0 0;padding:20px 18px 30px">
+            <div style="width:40px;height:4px;border-radius:99px;background:#dfe2dc;margin:0 auto 20px"></div>
+            <div style="width:52px;height:52px;border-radius:99px;background:#241516;display:flex;align-items:center;justify-content:center">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#ff6a5a" stroke-width="2"><path d="M5.5 7h13l-1 12.5h-11z"/><path d="M9 7V4.5h6V7"/></svg>
+            </div>
+            <div style="font-size:26px;font-weight:800;letter-spacing:-.035em;line-height:1.08;margin-top:16px">Delete your account?</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#3b4237;margin-top:12px;text-wrap:pretty">This removes your profile, subscription and the entire on-device index. Your original files and Drive stay untouched.</div>
+            <div style="margin-top:18px;border-radius:22px;background:#f3f5f0;padding:16px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.4" style="flex:none"><path d="M6 6l12 12M18 6L6 18"/></svg><span style="font-size:13.5px;font-weight:600">1,516 indexed memories</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.4" style="flex:none"><path d="M6 6l12 12M18 6L6 18"/></svg><span style="font-size:13.5px;font-weight:600">Pro subscription, effective now</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a8f6b" stroke-width="2.4" style="flex:none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span style="font-size:13.5px;font-weight:600;color:#3b4237">Your files and Drive are kept</span></div>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font-family:'Martian Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;color:#6b6f67">TYPE DELETE TO CONFIRM</div>
+              <div style="height:52px;border-radius:99px;background:#f3f5f0;border:1.5px solid #dfe2dc;display:flex;align-items:center;padding:0 20px;margin-top:8px;gap:2px">
+                <span style="font-family:'Martian Mono',ui-monospace,monospace;font-size:15px;letter-spacing:.06em">DELE</span>
+                <div style="width:2px;height:20px;background:#101010"></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:18px">
+              <div style="flex:1;height:54px;border-radius:99px;background:#f3f5f0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Keep</div>
+              <div style="flex:1;height:54px;border-radius:99px;background:#f0dedc;color:#a8574c;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Delete</div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#59d3ff&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#59d3ff&quot;,&quot;#c8f04a&quot;,&quot;#ff7a3d&quot;,&quot;#ffd14a&quot;,&quot;#ff6fae&quot;,&quot;#a78bfa&quot;],&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#59d3ff' };
+  }
+}
+</script>
+</body>
+</html>

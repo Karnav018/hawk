@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  actor U as User
+  participant App as Hawk app
+  participant Fn as Cloud Functions
+  participant DB as Firestore (emailChallenges)
+  participant Mail as Email provider
+  participant Auth as Firebase Auth
+  U->>App: enter email address
+  App->>Fn: request_email_code(email)
+  Fn->>Fn: generate a 6-digit code
+  Fn->>DB: store HMAC(code), expires in 10 min
+  Fn->>Mail: send the code
+  Mail-->>U: email with the code
+  U->>App: type the code
+  App->>Fn: verify_email_code(email, code)
+  Fn->>DB: compare HMAC, count attempts (max 5)
+  Fn->>Auth: find or create the user, create_custom_token()
+  Fn-->>App: custom token
+  App->>Auth: signInWithCustomToken()
+  Auth-->>App: ordinary Firebase session (ID token)
